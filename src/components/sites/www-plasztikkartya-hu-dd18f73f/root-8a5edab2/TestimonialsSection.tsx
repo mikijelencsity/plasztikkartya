@@ -29,15 +29,15 @@ export function TestimonialsSection() {
               <div className="w-full py-[15px]">
                 <span className="block w-full border-t border-white/22" />
               </div>
-              <div className="flex w-full flex-col gap-[30px] tab:flex-row tab:flex-nowrap tab:gap-[50px]">
+              <div className="flex w-full flex-wrap gap-x-[24px] gap-y-[12px]">
                 {testimonial.stats.map((stat) => (
                   <div key={stat.label} className="flex flex-col-reverse">
-                    <div className="flex flex-1 items-center justify-start font-roboto text-[15px] leading-[2.5] font-normal text-white">
+                    <div className="items-center justify-start font-roboto text-[11px] leading-[1.6] font-normal text-white">
                       {stat.label}
                     </div>
-                    <div className="flex flex-1 font-helvetica text-[35px] leading-none font-bold text-pk-gold">
+                    <div className="font-helvetica text-[20px] leading-none font-bold text-pk-gold">
                       <Counter to={stat.value} />
-                      <span className="grow">{stat.suffix}</span>
+                      <span>{stat.suffix}</span>
                     </div>
                   </div>
                 ))}
