@@ -32,7 +32,7 @@ export interface GalleryImage {
 
 export const hero = {
   titleLines: ["A plasztikkártya", "a jövő"],
-  text: "A Plasztikkártya széleskörű felhasználhatósága, praktikus kezelhetősége és időtállósága teszi a plasztikkártyát egyre népszerűbbé mind az üzleti, mind a magánszférában.",
+  text: "Tartós. Praktikus. Feltűnő. A plasztikkártya ma már nem luxus, hanem alapkövetelmény — üzletben és magánéletben egyaránt egyre népszerűbb.",
   cta: "Szerezze meg most",
 };
 
