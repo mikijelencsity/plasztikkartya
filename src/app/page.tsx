@@ -2,8 +2,6 @@ import { BackToTop } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/roo
 import { BenefitsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsSection";
 import { CardGallerySection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardGallerySection";
 import { CardTypesSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardTypesSection";
-import { ContactPreviewCardPicker } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/ContactPreviewCardPicker";
-import { ContactPreviewTwoStep } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/ContactPreviewTwoStep";
 import { ContactSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/ContactSection";
 import { HeroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/HeroSection";
 import { IntroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/IntroSection";
@@ -23,10 +21,6 @@ export default function Home() {
           <CardGallerySection />
           <TestimonialsSection />
           <ContactSection />
-          <div className="w-full border-t-4 border-dashed border-pk-gold/40">
-            <ContactPreviewCardPicker />
-            <ContactPreviewTwoStep />
-          </div>
         </main>
       </div>
       <BackToTop />
