@@ -53,6 +53,12 @@ describe("POST /api/contact", () => {
     });
   });
 
+  it("includes the company name in the email body when provided", async () => {
+    await POST(makeRequest({ ...validPayload, company: "Teszt Kft." }));
+
+    expect(sendMock.mock.calls[0][0].text).toContain("Cégnév: Teszt Kft.");
+  });
+
   it("returns 400 when a required field is missing", async () => {
     const response = await POST(makeRequest({ ...validPayload, name: "" }));
     const json = await response.json();

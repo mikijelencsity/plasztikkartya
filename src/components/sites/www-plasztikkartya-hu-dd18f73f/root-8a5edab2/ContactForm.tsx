@@ -29,6 +29,7 @@ export function ContactForm({ className }: ContactFormProps) {
     const data = new FormData(event.currentTarget);
     const payload = {
       name: String(data.get("name") ?? ""),
+      company: String(data.get("company") ?? ""),
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
       cardType: String(data.get("select") ?? ""),
@@ -72,14 +73,26 @@ export function ContactForm({ className }: ContactFormProps) {
       <div className="-mx-[10px] -mb-5 flex flex-wrap">
         <FieldGroup half>
           <label htmlFor="form-field-name" className="sr-only">
-            Név/Cégnév
+            Név
           </label>
           <input
             id="form-field-name"
             name="name"
             type="text"
             required
-            placeholder="Név/Cégnév.."
+            placeholder="Név.."
+            className={cn(field, "min-h-10 px-[15px] py-[10px]")}
+          />
+        </FieldGroup>
+        <FieldGroup half>
+          <label htmlFor="form-field-company" className="sr-only">
+            Cégnév
+          </label>
+          <input
+            id="form-field-company"
+            name="company"
+            type="text"
+            placeholder="Cégnév (nem kötelező).."
             className={cn(field, "min-h-10 px-[15px] py-[10px]")}
           />
         </FieldGroup>

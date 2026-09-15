@@ -9,7 +9,7 @@ vi.mock("@/lib/tracking", () => ({
 }));
 
 async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
-  await user.type(screen.getByLabelText("Név/Cégnév"), "Teszt Elek");
+  await user.type(screen.getByLabelText("Név"), "Teszt Elek");
   await user.type(screen.getByLabelText("Email"), "teszt@example.com");
   await user.type(screen.getByLabelText("Phone"), "+36301234567");
   await user.click(screen.getByLabelText(/Elfogadom/));
@@ -42,7 +42,18 @@ describe("ContactForm", () => {
     await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
 
     expect(await screen.findByText(/Hiba történt/)).toBeInTheDocument();
-    expect(screen.getByLabelText("Név/Cégnév")).toHaveValue("Teszt Elek");
+    expect(screen.getByLabelText("Név")).toHaveValue("Teszt Elek");
     expect(trackLeadConversion).not.toHaveBeenCalled();
+  });
+
+  it("submits successfully without a company name, since it is optional", async () => {
+    vi.mocked(fetch).mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+    const user = userEvent.setup();
+    render(<ContactForm />);
+
+    await fillRequiredFields(user);
+    await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
+
+    expect(await screen.findByText("Köszönjük az ajánlatkérést!")).toBeInTheDocument();
   });
 });

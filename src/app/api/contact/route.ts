@@ -5,6 +5,7 @@ export const runtime = "nodejs";
 
 interface ContactPayload {
   name?: string;
+  company?: string;
   email?: string;
   phone?: string;
   cardType?: string;
@@ -33,6 +34,7 @@ export async function POST(request: Request) {
   }
 
   const name = payload.name?.trim() ?? "";
+  const company = payload.company?.trim() ?? "";
   const email = payload.email?.trim() ?? "";
   const phone = payload.phone?.trim() ?? "";
   const cardType = payload.cardType?.trim() ?? "";
@@ -62,7 +64,8 @@ export async function POST(request: Request) {
       replyTo: email,
       subject: `Új ajánlatkérés – ${name}`,
       text: [
-        `Név/Cégnév: ${name}`,
+        `Név: ${name}`,
+        `Cégnév: ${company || "-"}`,
         `Email: ${email}`,
         `Telefon: ${phone}`,
         `Kártyatípus: ${cardType || "-"}`,
