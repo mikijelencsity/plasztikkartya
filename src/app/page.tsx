@@ -1,0 +1,31 @@
+import { BackToTop } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BackToTop";
+import { BenefitsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsSection";
+import { CardGallerySection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardGallerySection";
+import { CardTypesSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardTypesSection";
+import { ContactSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/ContactSection";
+import { HeroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/HeroSection";
+import { IntroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/IntroSection";
+import { SiteHeader } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/SiteHeader";
+import { StepsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/StepsSection";
+import { TestimonialsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/TestimonialsSection";
+
+export default function Home() {
+  return (
+    <>
+      <div className="isolate mx-auto flex w-full max-w-[2000px] animate-pk-fade-in flex-col items-center overflow-hidden bg-pk-navy font-helvetica">
+        <SiteHeader />
+        <main className="flex w-full flex-col gap-5 desk:mt-[75px]">
+          <HeroSection />
+          <IntroSection />
+          <CardTypesSection />
+          <BenefitsSection />
+          <StepsSection />
+          <CardGallerySection />
+          <TestimonialsSection />
+          <ContactSection />
+        </main>
+      </div>
+      <BackToTop />
+    </>
+  );
+}
