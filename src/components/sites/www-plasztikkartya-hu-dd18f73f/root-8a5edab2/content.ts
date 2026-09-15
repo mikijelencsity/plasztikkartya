@@ -44,7 +44,7 @@ export const intro = {
 
 export const cardTypesSection = {
   title: "Plasztikkártya típusok",
-  text: "A tapasztalataink azt mutatják, hogy jelentősen megnövekedett az érdeklődés az igényesen elkészített plasztikkártyák iránt. A Plasztikkártya egyedülállóan, exkluzív módon képviseli Önt vagy cégét, vállalatát. Széleskörű felhasználhatósága, praktikus kezelhetősége és időtállósága teszi a plasztikkártyát egyre népszerűbbé mind az üzleti, mind a magánszférában.",
+  text: "Lapozd végig és találd meg célodra legalkalmasabb plasztikkártyát.",
 };
 
 export const cardTypes: CardType[] = [
