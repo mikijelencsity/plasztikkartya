@@ -162,7 +162,7 @@ export function ContactForm({ className }: ContactFormProps) {
           <FileDropzone name="upload" />
         </FieldGroup>
         <FieldGroup full>
-          <div className="flex justify-center text-center text-[17px] leading-[25.5px]">
+          <div className="flex flex-col items-center gap-2 text-center text-[17px] leading-[25.5px]">
             <span className="font-raleway text-[14px] leading-[21px] font-medium text-pk-muted">
               <input id="form-field-acceptance" name="acceptance" type="checkbox" required className="align-baseline" />{" "}
               <label htmlFor="form-field-acceptance">
@@ -171,6 +171,15 @@ export function ContactForm({ className }: ContactFormProps) {
                   Adatvédelmi Tájékoztatóban
                 </a>{" "}
                 leírtakat
+              </label>
+            </span>
+            <span className="font-raleway text-[14px] leading-[21px] font-medium text-pk-muted">
+              <input id="form-field-cookies" name="cookies" type="checkbox" required className="align-baseline" />{" "}
+              <label htmlFor="form-field-cookies">
+                Elfogadom a{" "}
+                <a href="https://www.plasztikkartya.hu/sutik-tajekoztato" className="text-pk-gold">
+                  Sütik (cookie-k) használatát
+                </a>
               </label>
             </span>
           </div>

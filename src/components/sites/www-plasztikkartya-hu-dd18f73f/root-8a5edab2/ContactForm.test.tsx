@@ -12,7 +12,8 @@ async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText("Név"), "Teszt Elek");
   await user.type(screen.getByLabelText("Email"), "teszt@example.com");
   await user.type(screen.getByLabelText("Phone"), "+36301234567");
-  await user.click(screen.getByLabelText(/Elfogadom/));
+  await user.click(screen.getByLabelText(/Adatvédelmi Tájékoztatóban/));
+  await user.click(screen.getByLabelText(/Sütik \(cookie-k\) használatát/));
 }
 
 describe("ContactForm", () => {
