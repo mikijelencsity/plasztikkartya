@@ -36,15 +36,15 @@ function WhyUsLine({ text }: { text: string }) {
     <div ref={ref} className="flex flex-col items-center">
       <h2
         className={cn(
-          "text-center font-helvetica text-[28px] leading-[1.15] font-bold text-white transition-all duration-700 ease-out tab:text-[46px] desk:text-[60px]",
-          inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
+          "text-center font-helvetica text-[44px] leading-[1.08] font-bold text-white transition-all duration-1000 ease-out tab:text-[72px] desk:text-[104px]",
+          inView ? "translate-y-0 scale-100 opacity-100 blur-none" : "translate-y-12 scale-95 opacity-0 blur-md",
         )}
       >
         {text}
       </h2>
       <span
         className={cn(
-          "mt-4 h-[6px] w-[70%] max-w-[420px] origin-center rounded-full bg-pk-gold transition-transform duration-700 ease-out tab:h-[8px]",
+          "mt-6 h-[7px] w-[75%] max-w-[560px] origin-center rounded-full bg-gradient-to-r from-transparent via-pk-gold to-transparent transition-transform delay-300 duration-700 ease-out tab:h-[9px] tab:mt-8",
           inView ? "scale-x-100" : "scale-x-0",
         )}
       />
@@ -54,12 +54,12 @@ function WhyUsLine({ text }: { text: string }) {
 
 export function WhyUsReveal() {
   return (
-    <section className={cn("w-full py-[60px] tab:py-[80px]", responsivePadding)}>
+    <section className={cn("w-full py-[80px] tab:py-[120px]", responsivePadding)}>
       <div className={cn(boxedInner, "flex flex-col items-center")}>
-        <span className="mb-[70px] font-raleway text-[13px] font-medium tracking-[0.2em] text-pk-gold uppercase">
+        <span className="mb-[80px] font-raleway text-[14px] font-medium tracking-[0.3em] text-pk-gold uppercase">
           {whyUsSection.eyebrow}
         </span>
-        <div className="flex w-full flex-col items-center gap-[90px] tab:gap-[130px]">
+        <div className="flex w-full flex-col items-center gap-[110px] tab:gap-[170px]">
           {whyUsItems.map((item) => (
             <WhyUsLine key={item} text={item} />
           ))}
