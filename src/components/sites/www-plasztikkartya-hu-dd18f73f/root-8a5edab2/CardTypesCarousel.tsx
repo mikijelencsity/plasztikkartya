@@ -12,6 +12,7 @@ const arrow =
 // Real pixel dimensions per image, used only to preserve aspect ratio (display size comes from className).
 const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "card-02.webp": { width: 1552, height: 1552 },
+  "vip-card.webp": { width: 1488, height: 1106 },
   "card-gift-ai.webp": { width: 1371, height: 1147 },
   "card-vip-ai.webp": { width: 1371, height: 1147 },
   "card-door-ai.webp": { width: 1371, height: 1147 },

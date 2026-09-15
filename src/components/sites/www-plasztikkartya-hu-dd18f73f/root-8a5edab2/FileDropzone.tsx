@@ -49,7 +49,7 @@ export function FileDropzone({ name, className }: FileDropzoneProps) {
   return (
     <div className={cn("w-full", className)}>
       <label htmlFor={inputId} className="mb-2 block text-center font-raleway text-[14px] font-normal text-white">
-        Van grafika, töltsd fel fájlod <span className="text-white/45">(nem kötelező)</span>
+        Van grafikád? Töltsd fel képed <span className="text-white/45">(nem kötelező)</span>
       </label>
       <div
         role="button"

@@ -63,14 +63,14 @@ export const cardTypes: CardType[] = [
   },
   {
     icon: "transparent",
-    image: "card-02.webp",
+    image: "card-vip-ai.webp",
     title: "Transzparens kártya",
     description:
       "Kínálatunkban víztiszta és különböző füstszínű plasztikkártyák érhetők el matt vagy fényes kivitelben. A klasszikus és különleges árnyalatok között mindenki megtalálhatja az igényeinek megfelelő megjelenést.",
   },
   {
     icon: "vip",
-    image: "card-vip-ai.webp",
+    image: "vip-card.webp",
     title: "VIP kártya",
     description:
       "VIP kártyáink exkluzív megjelenésükkel ideálisak rendezvények, klubok és kiemelt vendégek számára. Arany vagy ezüst felületkezeléssel, dombornyomással és belépő- vagy kulcskártya funkcióval is készülhetnek.",
@@ -162,9 +162,10 @@ export const steps: Step[] = [
   },
 ];
 
-export const galleryImages: GalleryImage[] = ["013", "012", "011", "010", "09", "08", "07", "06", "05", "04", "03", "02", "01"].map(
-  (n) => ({ src: `${IMAGES}/card-${n}.webp`, alt: `card-${n}` }),
-);
+export const galleryImages: GalleryImage[] = ["09", "08", "07", "06", "05", "04", "03", "02", "01"].map((n) => ({
+  src: `${IMAGES}/card-${n}.webp`,
+  alt: `card-${n}`,
+}));
 
 export const testimonialsSection = {
   title: "Vevői visszajelzések",
