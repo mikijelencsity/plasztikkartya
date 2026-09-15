@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito, Raleway, Roboto } from "next/font/google";
 import localFont from "next/font/local";
+import { ConversionScripts } from "@/components/analytics/ConversionScripts";
 import "./globals.css";
 
 const SEO = "/sites/www-plasztikkartya-hu-dd18f73f/shared/seo";
@@ -95,7 +96,10 @@ export default function RootLayout({
       lang="hu"
       className={`${helveticaNeue.variable} ${roboto.variable} ${raleway.variable} ${nunito.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ConversionScripts />
+      </body>
     </html>
   );
 }
