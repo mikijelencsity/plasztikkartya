@@ -31,14 +31,13 @@ export interface GalleryImage {
 }
 
 export const hero = {
-  titleLines: ["A plasztikkártya", "a jövő"],
-  text: "Tartós. Praktikus. Feltűnő. A plasztikkártya ma már nem luxus, hanem alapkövetelmény — üzletben és magánéletben egyaránt egyre népszerűbb.",
+  titleLines: ["Plasztikkártya", "a jövő a jelenben"],
+  text: "Tartós. Praktikus. Feltűnő. Ma már nem luxus — alapkövetelmény.",
   cta: "Szerezze meg most",
 };
 
 export const intro = {
-  title: "Itt az ideje elfelejteni a hagyományos papír alapú kártyákat!",
-  text: "Mire gondolhat ügyfelünk, leendő vásárlónk miközben kezében tartja plasztik kártyánkat? Mire másra, mint hogy ez az ember nem bízza a véletlenre üzleti sikereit! Mi a kezébe adjuk sikerének kulcsait, a többi már csak Önön múlik!",
+  title: "Melyiket adnád ügyfeled kezébe?",
   cta: "Megrendelem",
 };
 

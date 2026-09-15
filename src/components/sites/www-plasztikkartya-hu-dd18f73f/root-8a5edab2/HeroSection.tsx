@@ -14,9 +14,10 @@ export function HeroSection() {
       <div className={cn(boxedInner, "flex justify-center")}>
         <div className="flex w-full flex-col items-center gap-5 tab:mt-[75px] desk:mt-0">
           <h1 className="-mb-[5px] text-center font-helvetica text-[40px] leading-none font-normal text-white tab:mb-0 tab:text-[65px] desk:text-[105px]">
-            {hero.titleLines[0]}
-            <br />
-            {hero.titleLines[1]}
+            <span className="block font-bold underline decoration-pk-gold underline-offset-[10px]">
+              {hero.titleLines[0]}
+            </span>
+            <span className="mt-[14px] block tab:mt-[20px]">{hero.titleLines[1]}</span>
           </h1>
 
           <div className="relative mt-[20px] flex w-full flex-col tab:w-[500px] desk:w-[660px]">
