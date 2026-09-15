@@ -1,9 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { trackLeadConversion } from "@/lib/tracking";
 import { CaretDownIcon } from "../shared/icons";
-import { contact } from "./content";
+import { contact, footer } from "./content";
 
 const field =
   "w-full border-0 bg-pk-field font-raleway text-[14px] leading-[1.4] font-medium text-white/45 outline-none placeholder:text-white/45";
@@ -16,10 +17,58 @@ interface ContactFormProps {
   className?: string;
 }
 
-/** Elementor Pro form markup; submission is not wired to a backend in the clone. */
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export function ContactForm({ className }: ContactFormProps) {
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+
+    const data = new FormData(event.currentTarget);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      cardType: String(data.get("select") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      trackLeadConversion();
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className={cn(className, "flex flex-col items-center px-[10px] text-center")}>
+        <p className="font-helvetica text-[25px] font-medium text-white tab:text-[35px]">
+          Köszönjük az ajánlatkérést!
+        </p>
+        <p className="mt-[10px] font-raleway text-[16px] leading-[1.4] font-medium text-white/60">
+          Hamarosan felvesszük Önnel a kapcsolatot.
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <form className={className} name="Új űrlap" onSubmit={(event) => event.preventDefault()}>
+    <form className={className} name="Új űrlap" onSubmit={handleSubmit}>
       <div className="-mx-[10px] -mb-5 flex flex-wrap">
         <FieldGroup half>
           <label htmlFor="form-field-name" className="sr-only">
@@ -127,12 +176,23 @@ export function ContactForm({ className }: ContactFormProps) {
             </span>
           </div>
         </FieldGroup>
+        {status === "error" ? (
+          <FieldGroup>
+            <p className="font-raleway text-[14px] leading-[1.4] font-medium text-red-400">
+              Hiba történt a küldés során. Kérjük próbáld újra, vagy hívj minket:{" "}
+              <a href={footer.phoneHref} className="text-pk-gold underline">
+                {footer.phone}
+              </a>
+            </p>
+          </FieldGroup>
+        ) : null}
         <FieldGroup>
           <button
             type="submit"
-            className="rounded-[10px] bg-pk-gold px-[30px] pt-[17px] pb-[15px] font-helvetica text-[16px] leading-none font-bold text-white tab:text-[18px]"
+            disabled={status === "submitting"}
+            className="rounded-[10px] bg-pk-gold px-[30px] pt-[17px] pb-[15px] font-helvetica text-[16px] leading-none font-bold text-white tab:text-[18px] disabled:opacity-60"
           >
-            {contact.submit}
+            {status === "submitting" ? "Küldés…" : contact.submit}
           </button>
         </FieldGroup>
       </div>
