@@ -6,7 +6,7 @@ import { HeroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/r
 import { IntroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/IntroSection";
 import { SiteHeader } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/SiteHeader";
 import { TestimonialsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/TestimonialsSection";
-import { WhyUsCarousel } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/WhyUsCarousel";
+import { WhyUsReveal } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/WhyUsReveal";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
           <HeroSection />
           <IntroSection />
           <CardTypesSection />
-          <WhyUsCarousel />
+          <WhyUsReveal />
           <CardGallerySection />
           <TestimonialsSection />
           <ContactSection />
