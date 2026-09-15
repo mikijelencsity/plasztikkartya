@@ -45,7 +45,6 @@ export const whyUsItems: string[] = [
   "Ügyfeleid felfigyelnek rá",
   "Grafikával nincs feladatod",
   "Célodra szabjuk",
-  "Sokoldalúan felhasználhatod",
   "Gyorsan a tiéd",
 ];
 
@@ -103,13 +102,6 @@ export const cardTypes: CardType[] = [
     title: "Kedvezmény kártya",
     description:
       "A hűségkártya hatékony eszköz a visszatérő vásárlók jutalmazására és a vevőkapcsolatok erősítésére. Segítségével éreztetheti ügyfeleivel, hogy fontosak Önnek. Egyedi grafikával és teljes körű tervezési segítséggel készítjük el.",
-  },
-  {
-    icon: "warranty",
-    image: "card-08.webp",
-    title: "Garancia kártya",
-    description:
-      "A tartós plasztik garanciakártya megbízhatóbb és időtállóbb megoldás a papíralapú jótállási jegyeknél. Ez a plasztikkártya megbízhatóságot sugall, évek alatt sem romlik a minősége. Igény szerint azonosítást segítő extrákkal is ellátható.",
   },
   {
     icon: "sportPass",
