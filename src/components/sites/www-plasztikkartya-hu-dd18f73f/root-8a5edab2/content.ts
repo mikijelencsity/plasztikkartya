@@ -98,7 +98,6 @@ export const cardTypes: CardType[] = [
 
 export const benefits = {
   title: "Miért válassza a plasztikkártyát?",
-  text: "A plasztikkártya tartós, elegáns és professzionális megjelenést biztosít, legyen szó hűségkártyáról, belépőkártyáról, névjegykártyáról vagy azonosító kártyáról. A kiváló minőségű alapanyagoknak és a számos egyedi kialakítási lehetőségnek köszönhetően hosszú távon is megbízható megoldást kínál vállalkozása számára.",
   lists: [
     ["Tartós és időtálló", "Prémium megjelenés", "Grafikai támogatás"],
     ["Egyedi kialakítás", "Sokoldalú felhasználás", "Gyors gyártás"],
@@ -146,7 +145,7 @@ export const galleryImages: GalleryImage[] = ["013", "012", "011", "010", "09", 
 
 export const testimonialsSection = {
   title: "Vevői visszajelzések",
-  text: "Valódi visszajelzések elégedett ügyfeleinktől, akik prémium minőségű plasztikkártyáinkat választották. Olvasd el, milyen tapasztalatokat szereztek a közös munka során.",
+  text: "Valódi vélemények elégedett ügyfeleinktől.",
 };
 
 export const testimonials: Testimonial[] = [

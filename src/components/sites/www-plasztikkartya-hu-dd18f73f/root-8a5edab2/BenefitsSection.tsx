@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { CheckCircleIcon } from "../shared/icons";
 import { ButtonLink } from "./ButtonLink";
 import { benefits, IMAGES } from "./content";
-import { boxedInner, mutedText, responsivePadding, sectionHeading } from "./styles";
+import { boxedInner, responsivePadding, sectionHeading } from "./styles";
 
 export function BenefitsSection() {
   return (
@@ -16,9 +16,8 @@ export function BenefitsSection() {
       >
         <div className="flex w-full min-w-0 flex-col items-start gap-5 tab:mt-[100px] desk:mt-0">
           <h2 className={cn(sectionHeading, "w-[631px] text-start")}>{benefits.title}</h2>
-          <p className={cn(mutedText, "mb-[10px] w-[800px] max-w-full text-start desk:mt-[10px]")}>{benefits.text}</p>
 
-          <div className="flex w-full flex-wrap items-start justify-start gap-x-[50px] tab:flex-nowrap">
+          <div className="mt-[10px] flex w-full flex-wrap items-start justify-start gap-x-[50px] tab:flex-nowrap">
             {benefits.lists.map((list, listIndex) => (
               <ul key={list[0]} className={cn("flex flex-col gap-5", listIndex > 0 && "mt-5 tab:mt-0")}>
                 {list.map((item) => (
