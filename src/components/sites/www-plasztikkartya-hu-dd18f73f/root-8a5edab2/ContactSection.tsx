@@ -26,7 +26,7 @@ export function ContactSection() {
           {contact.title}
         </h2>
         <p className={cn(mutedText, "mt-5 mb-[50px] w-[950px] max-w-full text-center")}>{contact.text}</p>
-        <div className="w-full rounded-[40px] bg-gradient-to-br from-[#f3e6bd] via-pk-gold-dark to-pk-gold p-[3px] desk:mt-[10px] desk:w-[950px] tab:rounded-[56px]">
+        <div className="w-full max-w-[1300px] rounded-[40px] bg-gradient-to-br from-[#f3e6bd] via-pk-gold-dark to-pk-gold p-[3px] desk:mt-[10px] tab:rounded-[56px]">
           <div className="relative rounded-[38px] bg-pk-navy px-[25px] py-[40px] tab:rounded-[54px] tab:px-[60px]">
             <span
               aria-hidden="true"
