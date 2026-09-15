@@ -188,8 +188,8 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const contact = {
-  title: "Rendeljen plasztikkártyát most!",
-  text: "Álmodja meg és mi megvalósítjuk! Az Ön kártyái személyre szabhatók aláírás-mezővel, mágnesszalaggal, vonalkóddal, stb. Forduljon hozzánk bizalommal telefonon vagy E-mail-en keresztül.",
+  title: "Kérjen ajánlatot!",
+  text: "Töltse ki az űrlapot, és hamarosan jelentkezünk.",
   cardOptions: [
     "Ajándékkártya",
     "Transzparens kártya",
