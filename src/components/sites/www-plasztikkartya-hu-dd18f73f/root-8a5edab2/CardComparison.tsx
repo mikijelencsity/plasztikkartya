@@ -8,12 +8,15 @@ export function CardComparison() {
   return (
     <div className="grid w-full grid-cols-2 gap-3 tab:gap-6">
       <div className="flex flex-col">
-        <div className="flex aspect-[1.586/1] w-full flex-col justify-between rounded-[10px] border border-white/15 bg-[#f4f1ea] p-[6%] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.03)]">
-          <div className="h-[10%] w-[35%] rounded-[2px] bg-black/10" />
-          <div className="flex flex-col gap-[6%]">
-            <div className="h-[6%] w-[70%] rounded-[2px] bg-black/20" />
-            <div className="h-[6%] w-[45%] rounded-[2px] bg-black/15" />
-          </div>
+        <div className="aspect-[1.586/1] w-full overflow-hidden rounded-[10px]">
+          <Image
+            src={`${IMAGES}/paper-card.png`}
+            alt="Sima papírkártya"
+            width={700}
+            height={441}
+            sizes="(min-width: 1051px) 45vw, 50vw"
+            className="h-full w-full object-cover"
+          />
         </div>
         <p className={label}>
           <span aria-hidden="true" className="text-white/30">
@@ -24,14 +27,14 @@ export function CardComparison() {
       </div>
 
       <div className="flex flex-col">
-        <div className="overflow-hidden rounded-[10px]">
+        <div className="aspect-[1.586/1] w-full overflow-hidden rounded-[10px] bg-pk-navy">
           <Image
             src={`${IMAGES}/hero-card.webp`}
             alt="Plasztikkártya"
             width={1536}
             height={1284}
             sizes="(min-width: 1051px) 30vw, 50vw"
-            className="h-auto w-full"
+            className="h-full w-full object-contain"
           />
         </div>
         <p className={label}>
