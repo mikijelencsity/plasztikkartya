@@ -14,19 +14,27 @@ export function ContactSection() {
       )}
     >
       <div className={cn(boxedInner, "flex flex-col items-center")}>
-        <Image
-          src={`${IMAGES}/contact-image.webp`}
-          alt=""
-          width={1536}
-          height={1024}
-          sizes="(min-width: 1051px) 1024px, 500px"
-          className="h-auto w-full max-w-[500px] desk:max-w-[1024px]"
-        />
-        <h2 id="contact" className={cn(sectionHeading, "scroll-mt-0 text-center desk:text-start")}>
-          {contact.title}
-        </h2>
-        <p className={cn(mutedText, "mt-5 mb-[50px] w-[950px] max-w-full text-center")}>{contact.text}</p>
-        <ContactForm className="w-full desk:mt-[10px] desk:w-[750px]" />
+        <div className="w-full rounded-[40px] bg-gradient-to-br from-[#f3e6bd] via-pk-gold-dark to-pk-gold p-[3px] tab:rounded-[56px]">
+          <div className="relative flex w-full flex-col items-center rounded-[38px] bg-pk-navy px-[25px] py-[50px] tab:rounded-[54px] tab:px-[60px]">
+            <span
+              aria-hidden="true"
+              className="absolute top-8 left-8 h-6 w-9 rounded-[5px] bg-gradient-to-br from-pk-gold-dark to-pk-gold tab:top-10 tab:left-10"
+            />
+            <Image
+              src={`${IMAGES}/contact-image.webp`}
+              alt=""
+              width={1536}
+              height={1024}
+              sizes="(min-width: 1051px) 1024px, 500px"
+              className="h-auto w-full max-w-[500px] desk:max-w-[1024px]"
+            />
+            <h2 id="contact" className={cn(sectionHeading, "scroll-mt-0 text-center desk:text-start")}>
+              {contact.title}
+            </h2>
+            <p className={cn(mutedText, "mt-5 mb-[50px] w-[950px] max-w-full text-center")}>{contact.text}</p>
+            <ContactForm className="w-full desk:mt-[10px] desk:w-[750px]" />
+          </div>
+        </div>
         <div className="my-[50px] w-full py-[15px]">
           <span className="block w-full border-t border-white/22" />
         </div>
