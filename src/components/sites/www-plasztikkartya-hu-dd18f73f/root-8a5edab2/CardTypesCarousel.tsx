@@ -18,21 +18,30 @@ export function CardTypesCarousel() {
       gap={50}
       label="Körhinta"
       slideClassName="flex"
-      renderSlide={(card) => (
-        <article className="flex h-full w-full flex-col items-start gap-5 rounded-[20px] bg-[url(/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/images/card-background.webp)] bg-cover bg-center bg-no-repeat p-[25px] tab:p-10">
-          <Image
-            src={`${IMAGES}/${card.image}`}
-            alt={card.title}
-            width={1552}
-            height={1552}
-            sizes="(min-width: 1051px) 30vw, 90vw"
-            className="h-auto w-full max-w-[220px] self-center"
-          />
-          <h3 className="font-helvetica text-[20px] leading-[35px] font-medium text-white tab:text-[25px]">
-            {card.title}
-          </h3>
-        </article>
-      )}
+      renderSlide={(card) => {
+        const isVip = card.icon === "vip";
+        return (
+          <article
+            className={cn(
+              "flex h-full w-full flex-col items-start gap-5 rounded-[20px] p-[25px] tab:p-10",
+              !isVip &&
+                "bg-[url(/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/images/card-background.webp)] bg-cover bg-center bg-no-repeat",
+            )}
+          >
+            <Image
+              src={`${IMAGES}/${card.image}`}
+              alt={card.title}
+              width={isVip ? 1488 : 1552}
+              height={isVip ? 1106 : 1552}
+              sizes="(min-width: 1051px) 30vw, 90vw"
+              className={cn("h-auto w-full self-center", isVip ? "max-w-none" : "max-w-[220px]")}
+            />
+            <h3 className="font-helvetica text-[20px] leading-[35px] font-medium text-white tab:text-[25px]">
+              {card.title}
+            </h3>
+          </article>
+        );
+      }}
       renderControls={({ prev, next }) => (
         <>
           <button

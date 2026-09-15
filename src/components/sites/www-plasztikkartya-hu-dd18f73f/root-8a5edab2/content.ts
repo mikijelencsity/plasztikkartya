@@ -57,7 +57,7 @@ export const cardTypes: CardType[] = [
   },
   {
     icon: "vip",
-    image: "card-03.webp",
+    image: "vip-card.webp",
     title: "VIP kártya",
     description:
       "VIP kártyáink exkluzív megjelenésükkel ideálisak rendezvények, klubok és kiemelt vendégek számára. Arany vagy ezüst felületkezeléssel, dombornyomással és belépő- vagy kulcskártya funkcióval is készülhetnek.",
