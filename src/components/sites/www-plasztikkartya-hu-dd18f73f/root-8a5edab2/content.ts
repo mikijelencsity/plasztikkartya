@@ -13,16 +13,9 @@ export interface Step {
   description: string;
 }
 
-export interface TestimonialStat {
-  label: string;
-  value: number;
-  suffix: string;
-}
-
 export interface Testimonial {
   quote: string;
   name: string;
-  stats: TestimonialStat[];
 }
 
 export interface GalleryImage {
@@ -159,30 +152,15 @@ export const testimonialsSection = {
 export const testimonials: Testimonial[] = [
   {
     quote: "Nagyon elégedett vagyok a kártyák minőségével. Gyorsan elkészültek, és pontosan olyanok lettek, mint vártam.”",
-    name: "Szabó Eszter",
-    stats: [
-      { label: "Minőség", value: 98, suffix: "%" },
-      { label: "Ár-érték arány", value: 9, suffix: "/10" },
-      { label: "Gyártási idő", value: 9, suffix: "/10" },
-    ],
+    name: "Sebestyén Kata",
   },
   {
     quote: "Igényes kivitelezés, szép színek és tartós anyag. Biztosan innen rendelek legközelebb is.",
-    name: "Nagy Péter",
-    stats: [
-      { label: "Minőség", value: 100, suffix: "%" },
-      { label: "Ár-érték arány", value: 10, suffix: "/10" },
-      { label: "Gyártási idő", value: 9, suffix: "/10" },
-    ],
+    name: "Dékány Bence",
   },
   {
     quote: "Kiváló minőségű plasztikkártyák, segítőkész ügyfélszolgálat és gyors szállítás. Csak ajánlani tudom.",
-    name: "Tóth Katalin",
-    stats: [
-      { label: "Minőség", value: 95, suffix: "%" },
-      { label: "Ár-érték arány", value: 9.5, suffix: "/10" },
-      { label: "Gyártási idő", value: 9, suffix: "/10" },
-    ],
+    name: "Pálinkás Réka",
   },
 ];
 
