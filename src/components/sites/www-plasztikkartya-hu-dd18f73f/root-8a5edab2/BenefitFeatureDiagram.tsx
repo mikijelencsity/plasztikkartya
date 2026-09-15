@@ -1,105 +1,56 @@
 import Image from "next/image";
 import { benefits, IMAGES } from "./content";
 
-const Y_POSITIONS = [18, 50, 82];
-const COLUMN_X_POSITIONS = [16.66, 50, 83.33];
+const ANGLES = [-75, -45, -15, 15, 45, 75];
 
-interface LabelProps {
-  item: string;
-  y: number;
-  side: "left" | "right";
+const ARROW_CLIP =
+  "polygon(50% 0%, 100% 38%, 76% 38%, 76% 100%, 24% 100%, 24% 38%, 0% 38%)";
+
+interface ArrowProps {
+  label: string;
+  angle: number;
 }
 
-function Label({ item, y, side }: LabelProps) {
+function Arrow({ label, angle }: ArrowProps) {
   return (
     <div
-      className={`absolute w-[18%] -translate-y-1/2 font-helvetica text-[13px] leading-[18px] font-medium text-white ${
-        side === "left" ? "left-0 pr-[4%] text-right" : "right-0 pl-[4%] text-left"
-      }`}
-      style={{ top: `${y}%` }}
+      className="absolute bottom-full left-1/2 origin-bottom"
+      style={{ transform: `translateX(-50%) rotate(${angle}deg)` }}
     >
-      {item}
+      <div
+        className="flex h-[70px] w-[92px] -translate-y-[70px] items-start justify-center bg-gradient-to-b from-white via-white/95 to-pk-gold pt-[24px] shadow-[0_10px_20px_-8px_rgba(0,0,0,0.6)] tab:h-[100px] tab:w-[130px] tab:pt-[34px]"
+        style={{ clipPath: ARROW_CLIP }}
+      >
+        <span
+          className="block w-[70%] text-center font-helvetica text-[9px] leading-[1.15] font-bold text-pk-navy tab:text-[12px]"
+          style={{ transform: `rotate(${-angle}deg)` }}
+        >
+          {label}
+        </span>
+      </div>
     </div>
   );
 }
 
-/** Annotated product diagram: leader lines from the six benefits to the card image, instead of a checklist. */
+/** Six benefits as arrows fanning out from the card, instead of a checklist. */
 export function BenefitFeatureDiagram() {
-  const [leftItems, rightItems] = benefits.lists;
+  const items = benefits.lists.flat();
 
   return (
-    <>
-      {/* Desktop: annotated diagram with leader lines pointing at the card image. */}
-      <div className="relative hidden w-full desk:block desk:px-[20%]">
+    <div className="relative flex w-full flex-col items-center pt-[90px] tab:pt-[130px]">
+      <div className="relative w-full max-w-[420px] tab:max-w-[520px]">
+        {items.map((item, index) => (
+          <Arrow key={item} label={item} angle={ANGLES[index]} />
+        ))}
         <Image
           src={`${IMAGES}/vip-card.webp`}
           alt=""
           width={1024}
           height={761}
-          sizes="45vw"
+          sizes="(min-width: 1051px) 40vw, 90vw"
           className="relative z-[1] h-auto w-full"
         />
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          {Y_POSITIONS.map((y) => (
-            <line key={`l-${y}`} x1="2" y1={y} x2="20" y2={y} stroke="#aba37d" strokeWidth="0.3" />
-          ))}
-          {Y_POSITIONS.map((y) => (
-            <line key={`r-${y}`} x1="80" y1={y} x2="98" y2={y} stroke="#aba37d" strokeWidth="0.3" />
-          ))}
-          {Y_POSITIONS.map((y) => (
-            <circle key={`ld-${y}`} cx="20" cy={y} r="0.9" fill="#aba37d" />
-          ))}
-          {Y_POSITIONS.map((y) => (
-            <circle key={`rd-${y}`} cx="80" cy={y} r="0.9" fill="#aba37d" />
-          ))}
-        </svg>
-        {leftItems.map((item, index) => (
-          <Label key={item} item={item} y={Y_POSITIONS[index]} side="left" />
-        ))}
-        {rightItems.map((item, index) => (
-          <Label key={item} item={item} y={Y_POSITIONS[index]} side="right" />
-        ))}
       </div>
-
-      {/* Mobile/tablet: card on top, three arrows fanning down into a 3-column x 2-row grid. */}
-      <div className="flex w-full flex-col items-center desk:hidden">
-        <Image
-          src={`${IMAGES}/vip-card.webp`}
-          alt=""
-          width={1024}
-          height={761}
-          sizes="100vw"
-          className="h-auto w-full"
-        />
-        <div className="relative h-[34px] w-full">
-          {COLUMN_X_POSITIONS.map((x) => (
-            <svg
-              key={x}
-              aria-hidden="true"
-              width="14"
-              height="34"
-              viewBox="0 0 14 34"
-              className="absolute top-0 -translate-x-1/2"
-              style={{ left: `${x}%` }}
-            >
-              <line x1="7" y1="0" x2="7" y2="24" stroke="#aba37d" strokeWidth="1.5" />
-              <polygon points="7,32 1,20 13,20" fill="#aba37d" />
-            </svg>
-          ))}
-        </div>
-        <div className="grid w-full grid-cols-3 gap-x-2 gap-y-[18px] text-center">
-          {[...leftItems, ...rightItems].map((item) => (
-            <span key={item} className="font-helvetica text-[12px] leading-[16px] font-medium text-white">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-    </>
+    </div>
   );
 }
