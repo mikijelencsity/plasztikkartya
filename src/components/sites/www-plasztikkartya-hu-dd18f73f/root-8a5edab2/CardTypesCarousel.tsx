@@ -9,6 +9,19 @@ import { cardTypes, IMAGES } from "./content";
 const arrow =
   "absolute top-[calc(100%+25px)] flex items-center justify-center rounded-full bg-pk-gold p-[10px] text-white hover:bg-white hover:text-pk-gold";
 
+// Real pixel dimensions per image, used only to preserve aspect ratio (display size comes from className).
+const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "card-02.webp": { width: 1552, height: 1552 },
+  "card-gift-ai.webp": { width: 1371, height: 1147 },
+  "card-vip-ai.webp": { width: 1371, height: 1147 },
+  "card-door-ai.webp": { width: 1371, height: 1147 },
+  "card-customgraphic-ai.webp": { width: 1371, height: 1148 },
+  "card-id-ai.webp": { width: 1371, height: 1148 },
+  "card-discount-ai.webp": { width: 1536, height: 1024 },
+  "card-warranty-ai.webp": { width: 1536, height: 1024 },
+  "card-sportpass-ai.webp": { width: 1371, height: 1147 },
+};
+
 export function CardTypesCarousel() {
   return (
     <Carousel
@@ -19,14 +32,14 @@ export function CardTypesCarousel() {
       label="Körhinta"
       slideClassName="flex"
       renderSlide={(card) => {
-        const isSquare = card.image !== "vip-card.webp";
+        const { width, height } = IMAGE_DIMENSIONS[card.image];
         return (
           <article className="flex h-full w-full flex-col items-center gap-5 rounded-[20px] p-[25px] tab:p-10">
             <Image
               src={`${IMAGES}/${card.image}`}
               alt={card.title}
-              width={isSquare ? 1552 : 1488}
-              height={isSquare ? 1552 : 1106}
+              width={width}
+              height={height}
               sizes="(min-width: 1051px) 30vw, 90vw"
               className="h-auto w-full self-center"
             />
