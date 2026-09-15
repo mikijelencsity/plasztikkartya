@@ -4,6 +4,7 @@ export const IMAGES = "/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/image
 
 export interface CardType {
   icon: CardTypeIconName;
+  image: string;
   title: string;
   description: string;
 }
@@ -42,54 +43,63 @@ export const cardTypesSection = {
 export const cardTypes: CardType[] = [
   {
     icon: "gift",
+    image: "card-01.webp",
     title: "Ajándékkártya",
     description:
       "Az ajándékkártya praktikus és elegáns ajándék családtagoknak, barátoknak vagy partnereknek. Előre meghatározott összeggel vagy feltöltött értékkártyaként is használható termékek és szolgáltatások vásárlására.",
   },
   {
     icon: "transparent",
+    image: "card-02.webp",
     title: "Transzparens kártya",
     description:
       "Kínálatunkban víztiszta és különböző füstszínű plasztikkártyák érhetők el matt vagy fényes kivitelben. A klasszikus és különleges árnyalatok között mindenki megtalálhatja az igényeinek megfelelő megjelenést.",
   },
   {
     icon: "vip",
+    image: "card-03.webp",
     title: "VIP kártya",
     description:
       "VIP kártyáink exkluzív megjelenésükkel ideálisak rendezvények, klubok és kiemelt vendégek számára. Arany vagy ezüst felületkezeléssel, dombornyomással és belépő- vagy kulcskártya funkcióval is készülhetnek.",
   },
   {
     icon: "door",
+    image: "card-04.webp",
     title: "Ajtó nyitó kártya",
     description:
       "Az ajtónyitó plasztikkártyák biztonságos beléptetést biztosítanak szállodákban, bankokban és más intézményekben. RFID vagy mágnescsíkos kivitelben is elérhetők az egyszerű és gyors azonosításhoz.",
   },
   {
     icon: "customGraphic",
+    image: "card-05.webp",
     title: "Egyedi grafikájú kártya",
     description:
       "Kész grafikája alapján vagy grafikusunk segítségével prémium minőségű névjegykártyákat készítünk. Egy- vagy kétoldalas kivitel, valamint arany, ezüst és dombornyomott felület is választható az Ön elképzelése szerint.",
   },
   {
     icon: "id",
+    image: "card-06.webp",
     title: "Azonosító kártya",
     description:
       "Az azonosító plasztikkártya egyszerre szolgálhat azonosításra és márkaépítésre. A gyártás előtt ingyenes látványtervet és tesztpéldányt is biztosítunk. Lehetőséget biztosítunk arra is, hogy a nyomtatás előtt kézbe vegye kártyáját.",
   },
   {
     icon: "discount",
+    image: "card-07.webp",
     title: "Kedvezmény kártya",
     description:
       "A hűségkártya hatékony eszköz a visszatérő vásárlók jutalmazására és a vevőkapcsolatok erősítésére. Segítségével éreztetheti ügyfeleivel, hogy fontosak Önnek. Egyedi grafikával és teljes körű tervezési segítséggel készítjük el.",
   },
   {
     icon: "warranty",
+    image: "card-08.webp",
     title: "Garancia kártya",
     description:
       "A tartós plasztik garanciakártya megbízhatóbb és időtállóbb megoldás a papíralapú jótállási jegyeknél. Ez a plasztikkártya megbízhatóságot sugall, évek alatt sem romlik a minősége. Igény szerint azonosítást segítő extrákkal is ellátható.",
   },
   {
     icon: "sportPass",
+    image: "card-09.webp",
     title: "Sportbérlet kártya",
     description:
       "A plasztik bérletkártya ideális választás edzőtermekbe, uszodákba és fitneszközpontokba, mivel hosszú távon is ellenáll a használatnak. Beléptetésre és szekrények nyitására is alkalmas extrafunkciókkal bővíthető.",
