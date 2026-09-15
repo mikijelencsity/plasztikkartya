@@ -1,4 +1,6 @@
 import { BackToTop } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BackToTop";
+import { BenefitsPreviewGrid } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsPreviewGrid";
+import { BenefitsPreviewPills } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsPreviewPills";
 import { BenefitsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsSection";
 import { CardGallerySection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardGallerySection";
 import { CardTypesSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardTypesSection";
@@ -18,6 +20,10 @@ export default function Home() {
           <IntroSection />
           <CardTypesSection />
           <BenefitsSection />
+          <div className="w-full border-t-4 border-dashed border-pk-gold/40">
+            <BenefitsPreviewGrid />
+            <BenefitsPreviewPills />
+          </div>
           <CardGallerySection />
           <TestimonialsSection />
           <ContactSection />
