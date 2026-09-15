@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { CheckCircleIcon } from "../shared/icons";
 import { benefits, IMAGES } from "./content";
 
 const Y_POSITIONS = [18, 50, 82];
+const COLUMN_X_POSITIONS = [16.66, 50, 83.33];
 
 interface LabelProps {
   item: string;
@@ -66,8 +66,8 @@ export function BenefitFeatureDiagram() {
         ))}
       </div>
 
-      {/* Mobile/tablet: image with a simple two-column label grid underneath, no leader lines. */}
-      <div className="flex w-full flex-col items-center gap-[25px] desk:hidden">
+      {/* Mobile/tablet: card on top, three arrows fanning down into a 3-column x 2-row grid. */}
+      <div className="flex w-full flex-col items-center desk:hidden">
         <Image
           src={`${IMAGES}/vip-card.webp`}
           alt=""
@@ -76,12 +76,27 @@ export function BenefitFeatureDiagram() {
           sizes="100vw"
           className="h-auto w-full"
         />
-        <div className="grid w-full grid-cols-2 gap-x-5 gap-y-3">
+        <div className="relative h-[34px] w-full">
+          {COLUMN_X_POSITIONS.map((x) => (
+            <svg
+              key={x}
+              aria-hidden="true"
+              width="14"
+              height="34"
+              viewBox="0 0 14 34"
+              className="absolute top-0 -translate-x-1/2"
+              style={{ left: `${x}%` }}
+            >
+              <line x1="7" y1="0" x2="7" y2="24" stroke="#aba37d" strokeWidth="1.5" />
+              <polygon points="7,32 1,20 13,20" fill="#aba37d" />
+            </svg>
+          ))}
+        </div>
+        <div className="grid w-full grid-cols-3 gap-x-2 gap-y-[18px] text-center">
           {[...leftItems, ...rightItems].map((item) => (
-            <div key={item} className="flex items-center gap-2">
-              <CheckCircleIcon className="size-4 shrink-0 text-pk-gold" />
-              <span className="font-helvetica text-[14px] font-medium text-white">{item}</span>
-            </div>
+            <span key={item} className="font-helvetica text-[12px] leading-[16px] font-medium text-white">
+              {item}
+            </span>
           ))}
         </div>
       </div>
