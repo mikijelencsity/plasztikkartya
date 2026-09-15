@@ -19,14 +19,14 @@ export function HeroSection() {
             {hero.titleLines[1]}
           </h1>
 
-          <div className="relative -mt-[92px] flex w-full flex-col tab:w-[500px] desk:mt-0 desk:w-[660px]">
+          <div className="relative mt-[20px] flex w-full flex-col tab:w-[500px] desk:w-[660px]">
             <span
               aria-hidden="true"
               // Elementor's `.e-con::before` also sets left: 0, which overrides the custom right: -100%.
               className={cn(glow, "top-[23%] left-0 -translate-x-3/4 rotate-180 tab:top-[-54%]")}
             />
             <span aria-hidden="true" className={cn(glow, "top-[25%] right-0 translate-x-3/4 tab:top-[-50%]")} />
-            <MouseTilt className="relative z-[1] mt-[10px] tab:-mt-[34px] desk:-mt-[165px]">
+            <MouseTilt className="relative z-[1]">
               <Image
                 src={`${IMAGES}/hero-card.webp`}
                 alt=""
