@@ -21,16 +21,10 @@ export function CardTypesCarousel() {
         const Icon = cardTypeIcons[card.icon];
         return (
           <article className="flex h-full w-full flex-col items-start gap-5 rounded-[20px] bg-[url(/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/images/card-background.webp)] bg-cover bg-center bg-no-repeat p-[25px] tab:p-10">
-            {/* Elementor icon widget: 50px inline-block icon in a 56px line box */}
-            <div className="h-[56px]">
-              <Icon className="size-[50px]" />
-            </div>
+            <Icon className="h-auto w-full max-w-[220px] self-center" />
             <h3 className="font-helvetica text-[20px] leading-[35px] font-medium text-white tab:text-[25px]">
               {card.title}
             </h3>
-            <p className="font-helvetica text-[15px] leading-[28px] font-light tracking-[0.2px] text-white tab:leading-[29px]">
-              {card.description}
-            </p>
           </article>
         );
       }}
