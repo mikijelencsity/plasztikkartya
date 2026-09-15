@@ -22,9 +22,12 @@ export function TestimonialsSection() {
               <p className="font-helvetica text-[14px] leading-[24px] font-light tracking-[0.2px] text-white">
                 {testimonial.quote}
               </p>
-              <h3 className="font-helvetica text-[17px] leading-[28px] font-medium text-white tab:text-[19px]">
-                {testimonial.name}
-              </h3>
+              <div>
+                <h3 className="font-helvetica text-[17px] leading-[24px] font-medium text-white tab:text-[19px]">
+                  {testimonial.name}
+                </h3>
+                <span className="font-raleway text-[12px] text-white/40">{testimonial.date}</span>
+              </div>
             </article>
           ))}
         </div>

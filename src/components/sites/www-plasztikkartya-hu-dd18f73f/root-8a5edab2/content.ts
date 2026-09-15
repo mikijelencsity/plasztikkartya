@@ -17,6 +17,7 @@ export interface Step {
 export interface Testimonial {
   quote: string;
   name: string;
+  date: string;
 }
 
 export interface GalleryImage {
@@ -162,14 +163,17 @@ export const testimonials: Testimonial[] = [
   {
     quote: "Nagyon elégedett vagyok a kártyák minőségével. Gyorsan elkészültek, és pontosan olyanok lettek, mint vártam.”",
     name: "Sebestyén Kata",
+    date: "2026. április 18.",
   },
   {
     quote: "Igényes kivitelezés, szép színek és tartós anyag. Biztosan innen rendelek legközelebb is.",
     name: "Dékány Bence",
+    date: "2026. június 3.",
   },
   {
     quote: "Kiváló minőségű plasztikkártyák, segítőkész ügyfélszolgálat és gyors szállítás. Csak ajánlani tudom.",
     name: "Pálinkás Réka",
+    date: "2026. május 27.",
   },
 ];
 
