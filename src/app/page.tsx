@@ -1,6 +1,16 @@
 import { BackToTop } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BackToTop";
-import { BenefitsPreviewGrid } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsPreviewGrid";
-import { BenefitsPreviewPills } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsPreviewPills";
+import {
+  BenefitsOption1Grid,
+  BenefitsOption2Pills,
+  BenefitsOption3Numbered,
+  BenefitsOption4DividedCard,
+  BenefitsOption5LargeFeatureCards,
+  BenefitsOption6CircleBadges,
+  BenefitsOption7TableGrid,
+  BenefitsOption8Staggered,
+  BenefitsOption9HorizontalScroll,
+  BenefitsOption10MinimalLarge,
+} from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsDesignOptions";
 import { BenefitsSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BenefitsSection";
 import { CardGallerySection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardGallerySection";
 import { CardTypesSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardTypesSection";
@@ -20,9 +30,17 @@ export default function Home() {
           <IntroSection />
           <CardTypesSection />
           <BenefitsSection />
-          <div className="w-full border-t-4 border-dashed border-pk-gold/40">
-            <BenefitsPreviewGrid />
-            <BenefitsPreviewPills />
+          <div className="flex w-full flex-col divide-y divide-dashed divide-pk-gold/40 border-t-4 border-dashed border-pk-gold/40">
+            <BenefitsOption1Grid />
+            <BenefitsOption2Pills />
+            <BenefitsOption3Numbered />
+            <BenefitsOption4DividedCard />
+            <BenefitsOption5LargeFeatureCards />
+            <BenefitsOption6CircleBadges />
+            <BenefitsOption7TableGrid />
+            <BenefitsOption8Staggered />
+            <BenefitsOption9HorizontalScroll />
+            <BenefitsOption10MinimalLarge />
           </div>
           <CardGallerySection />
           <TestimonialsSection />
