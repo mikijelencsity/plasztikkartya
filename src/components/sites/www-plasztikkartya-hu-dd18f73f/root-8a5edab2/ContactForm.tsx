@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { trackLeadConversion } from "@/lib/tracking";
 import { CaretDownIcon } from "../shared/icons";
 import { contact, footer } from "./content";
+import { FileDropzone } from "./FileDropzone";
 
 const field =
   "w-full rounded-[14px] border-0 bg-pk-field font-raleway text-[16px] leading-[1.4] font-medium text-white/50 outline-none placeholder:text-white/50";
@@ -158,21 +159,7 @@ export function ContactForm({ className }: ContactFormProps) {
           />
         </FieldGroup>
         <FieldGroup full>
-          <span className="block text-center font-raleway text-[14px] leading-[21px] font-normal text-white">
-            File feltöltése (nem kötelező)
-          </span>
-        </FieldGroup>
-        <FieldGroup full>
-          <label htmlFor="form-field-upload" className="sr-only">
-            upload
-          </label>
-          <input
-            id="form-field-upload"
-            name="upload"
-            type="file"
-            multiple
-            className="block w-full text-center font-raleway text-[14px] text-white/50"
-          />
+          <FileDropzone name="upload" />
         </FieldGroup>
         <FieldGroup full>
           <div className="flex justify-center text-center text-[17px] leading-[25.5px]">

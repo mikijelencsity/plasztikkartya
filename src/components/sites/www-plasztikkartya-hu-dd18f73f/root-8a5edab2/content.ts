@@ -200,6 +200,7 @@ export const contact = {
     "Kedvezmény kártya",
     "Garancia kártya",
     "Sportbérlet kártya",
+    "Egyéb",
   ],
   submit: "Üzenet küldése",
 };
