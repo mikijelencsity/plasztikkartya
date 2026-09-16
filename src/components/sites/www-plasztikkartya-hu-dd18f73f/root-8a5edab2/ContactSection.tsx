@@ -17,16 +17,25 @@ export function ContactSection() {
         <Image
           src={`${IMAGES}/contact-image.webp`}
           alt=""
-          width={1536}
+          width={1036}
           height={1024}
-          sizes="(min-width: 1051px) 1024px, 500px"
-          className="h-auto w-full max-w-[500px] desk:max-w-[1024px]"
+          sizes="(min-width: 1051px) 700px, 500px"
+          className="h-auto w-full max-w-[500px] desk:max-w-[700px]"
         />
-        <h2 id="contact" className={cn(sectionHeading, "scroll-mt-0 text-center desk:text-start")}>
+        <h2
+          id="contact"
+          className={cn(sectionHeading, "scroll-mt-0 text-center text-[32px] desk:text-start desk:text-[80px] tab:text-[45px]")}
+        >
           {contact.title}
         </h2>
-        <p className={cn(mutedText, "mt-5 mb-[50px] w-[950px] max-w-full text-center")}>{contact.text}</p>
-        <ContactForm className="w-full desk:mt-[10px] desk:w-[750px]" />
+        <p className={cn(mutedText, "mt-5 mb-[50px] w-[950px] max-w-full text-center text-[20px] desk:text-[24px]")}>
+          {contact.text}
+        </p>
+        <div className="w-full max-w-[1300px] rounded-[40px] bg-gradient-to-br from-[#f3e6bd] via-pk-gold-dark to-pk-gold p-[3px] desk:mt-[10px] tab:rounded-[56px]">
+          <div className="rounded-[38px] bg-pk-navy px-[25px] py-[40px] tab:rounded-[54px] tab:px-[60px]">
+            <ContactForm className="w-full" />
+          </div>
+        </div>
         <div className="my-[50px] w-full py-[15px]">
           <span className="block w-full border-t border-white/22" />
         </div>

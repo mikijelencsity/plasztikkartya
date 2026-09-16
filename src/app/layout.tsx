@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Nunito, Raleway, Roboto } from "next/font/google";
+import { Instrument_Sans, Nunito, Roboto } from "next/font/google";
 import localFont from "next/font/local";
+import { ConversionScripts } from "@/components/analytics/ConversionScripts";
 import "./globals.css";
 
 const SEO = "/sites/www-plasztikkartya-hu-dd18f73f/shared/seo";
@@ -49,7 +50,11 @@ const helveticaNeue = localFont({
 });
 
 const roboto = Roboto({ variable: "--font-roboto-google", subsets: ["latin", "latin-ext"], weight: "400" });
-const raleway = Raleway({ variable: "--font-raleway-google", subsets: ["latin", "latin-ext"], weight: ["400", "500"] });
+const instrumentSans = Instrument_Sans({
+  variable: "--font-raleway-google",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+});
 const nunito = Nunito({ variable: "--font-nunito-google", subsets: ["latin", "latin-ext"], weight: "400" });
 
 const title = "Plasztikkártya gyártás | Plasztikkartya.hu";
@@ -93,9 +98,12 @@ export default function RootLayout({
   return (
     <html
       lang="hu"
-      className={`${helveticaNeue.variable} ${roboto.variable} ${raleway.variable} ${nunito.variable} h-full scroll-smooth`}
+      className={`${helveticaNeue.variable} ${roboto.variable} ${instrumentSans.variable} ${nunito.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ConversionScripts />
+      </body>
     </html>
   );
 }

@@ -11,6 +11,8 @@
   --breakpoint-wide: 83.8125rem;
 
   --animate-pk-fade-in: pk-fade-in 2s ease-in-out;
+  --animate-pk-headline-in: pk-headline-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-pk-underline-in: pk-underline-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 
   @keyframes pk-fade-in {
     from {
@@ -18,6 +20,26 @@
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes pk-headline-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pk-underline-in {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
     }
   }
 }
@@ -30,7 +52,7 @@
   --font-heading: var(--font-sans);
   --font-helvetica: var(--font-helvetica-neue), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-roboto: var(--font-roboto-google), Roboto, sans-serif;
-  --font-raleway: var(--font-raleway-google), Raleway, sans-serif;
+  --font-raleway: var(--font-raleway-google), "Instrument Sans", sans-serif;
   --font-nunito: var(--font-nunito-google), Nunito, sans-serif;
   --color-pk-navy: #131b2a;
   --color-pk-gold: #aba37d;

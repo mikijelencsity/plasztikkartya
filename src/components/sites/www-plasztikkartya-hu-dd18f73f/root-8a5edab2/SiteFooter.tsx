@@ -4,7 +4,7 @@ import { footer, IMAGES } from "./content";
 
 const contactLabel = "font-nunito text-[17px] leading-[25.5px] font-normal text-pk-gold";
 const contactLink =
-  "mt-[10px] mb-[50px] font-helvetica text-[28px] leading-[35px] font-medium text-white transition-colors duration-300 hover:text-pk-gold tab:text-[40px]";
+  "mt-[10px] mb-[50px] font-raleway text-[28px] leading-[35px] font-medium text-white transition-colors duration-300 hover:text-pk-gold tab:text-[40px]";
 
 interface SiteFooterProps {
   className?: string;
@@ -24,10 +24,10 @@ export function SiteFooter({ className }: SiteFooterProps) {
             className="h-[22px] w-[193px]"
           />
         </div>
-        <p className="mt-[30px] mb-[25px] w-full font-helvetica text-[16px] leading-[30px] font-normal text-white/40 tab:leading-[35px] desk:w-[650px] desk:max-w-full desk:text-[18px]">
+        <p className="mt-[30px] mb-[25px] w-full font-raleway text-[16px] leading-[30px] font-normal text-white/40 tab:leading-[35px] desk:w-[650px] desk:max-w-full desk:text-[18px]">
           {footer.text}
         </p>
-        <ul className="flex w-full flex-col gap-[10px] font-helvetica text-[15px] leading-[1.5] font-normal text-white/40">
+        <ul className="flex w-full flex-col gap-[10px] font-raleway text-[15px] leading-[1.5] font-normal text-white/40">
           <li>{footer.copyright}</li>
           <li>
             <a href={footer.privacyHref}>{footer.privacyLabel}</a>

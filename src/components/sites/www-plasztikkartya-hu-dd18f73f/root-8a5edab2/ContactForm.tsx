@@ -1,40 +1,103 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { trackLeadConversion } from "@/lib/tracking";
 import { CaretDownIcon } from "../shared/icons";
-import { contact } from "./content";
+import { contact, footer } from "./content";
+import { FileDropzone } from "./FileDropzone";
 
 const field =
-  "w-full border-0 bg-pk-field font-raleway text-[14px] leading-[1.4] font-medium text-white/45 outline-none placeholder:text-white/45";
+  "w-full rounded-[14px] border-0 bg-pk-field font-raleway text-[16px] leading-[1.4] font-medium text-white/50 outline-none placeholder:text-white/50";
 
-function FieldGroup({ half, children }: { half?: boolean; children: ReactNode }) {
-  return <div className={cn("mb-5 w-full px-[10px]", half && "tab:w-1/2")}>{children}</div>;
+function FieldGroup({ full, children }: { full?: boolean; children: ReactNode }) {
+  return <div className={cn("w-full", full && "tab:col-span-2")}>{children}</div>;
 }
 
 interface ContactFormProps {
   className?: string;
 }
 
-/** Elementor Pro form markup; submission is not wired to a backend in the clone. */
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export function ContactForm({ className }: ContactFormProps) {
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+
+    const data = new FormData(event.currentTarget);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      company: String(data.get("company") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      cardType: String(data.get("select") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      trackLeadConversion();
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className={cn(className, "flex flex-col items-center px-[10px] text-center")}>
+        <p className="font-raleway text-[25px] font-medium text-white tab:text-[35px]">
+          Köszönjük az ajánlatkérést!
+        </p>
+        <p className="mt-[10px] font-raleway text-[16px] leading-[1.4] font-medium text-white/60">
+          Hamarosan felvesszük Önnel a kapcsolatot.
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <form className={className} name="Új űrlap" onSubmit={(event) => event.preventDefault()}>
-      <div className="-mx-[10px] -mb-5 flex flex-wrap">
-        <FieldGroup half>
+    <form className={cn(className, "flex flex-col items-center")} name="Új űrlap" onSubmit={handleSubmit}>
+      <div className="grid w-full grid-cols-1 gap-5 tab:grid-cols-2">
+        <FieldGroup>
           <label htmlFor="form-field-name" className="sr-only">
-            Név/Cégnév
+            Név
           </label>
           <input
             id="form-field-name"
             name="name"
             type="text"
             required
-            placeholder="Név/Cégnév.."
-            className={cn(field, "min-h-10 px-[15px] py-[10px]")}
+            placeholder="Név.."
+            className={cn(field, "min-h-[56px] px-5 py-4")}
           />
         </FieldGroup>
-        <FieldGroup half>
+        <FieldGroup>
+          <label htmlFor="form-field-company" className="sr-only">
+            Cégnév
+          </label>
+          <input
+            id="form-field-company"
+            name="company"
+            type="text"
+            placeholder="Cégnév (nem kötelező).."
+            className={cn(field, "min-h-[56px] px-5 py-4")}
+          />
+        </FieldGroup>
+        <FieldGroup>
           <label htmlFor="form-field-email" className="sr-only">
             Email
           </label>
@@ -44,10 +107,10 @@ export function ContactForm({ className }: ContactFormProps) {
             type="email"
             required
             placeholder="Email.."
-            className={cn(field, "min-h-10 px-[15px] py-[10px]")}
+            className={cn(field, "min-h-[56px] px-5 py-4")}
           />
         </FieldGroup>
-        <FieldGroup half>
+        <FieldGroup>
           <label htmlFor="form-field-phone" className="sr-only">
             Phone
           </label>
@@ -59,10 +122,10 @@ export function ContactForm({ className }: ContactFormProps) {
             placeholder="Telefonszám.."
             pattern="[0-9()#&+*\-=.]+"
             title="Only numbers and phone characters (#, -, *, etc) are accepted."
-            className={cn(field, "min-h-10 px-[15px] py-[10px]")}
+            className={cn(field, "min-h-[56px] px-5 py-4")}
           />
         </FieldGroup>
-        <FieldGroup half>
+        <FieldGroup full>
           <label htmlFor="form-field-select" className="sr-only">
             Select
           </label>
@@ -70,7 +133,7 @@ export function ContactForm({ className }: ContactFormProps) {
             <select
               id="form-field-select"
               name="select"
-              className={cn(field, "h-10 appearance-none rounded-[3px] py-[5px] pr-5 pl-[14px]")}
+              className={cn(field, "h-[56px] appearance-none py-4 pr-5 pl-5")}
             >
               {contact.cardOptions.map((option) => (
                 <option key={option} value={option}>
@@ -78,12 +141,12 @@ export function ContactForm({ className }: ContactFormProps) {
                 </option>
               ))}
             </select>
-            <span className="pointer-events-none absolute top-1/2 right-[10px] -translate-y-1/2 text-white/45">
-              <CaretDownIcon className="block h-[25px] w-[10px] -translate-x-[3px] -translate-y-px" />
+            <span className="pointer-events-none absolute top-1/2 right-5 -translate-y-1/2 text-white/50">
+              <CaretDownIcon className="block h-[25px] w-[10px] -translate-y-px" />
             </span>
           </div>
         </FieldGroup>
-        <FieldGroup>
+        <FieldGroup full>
           <label htmlFor="form-field-message" className="sr-only">
             Üzenet
           </label>
@@ -92,29 +155,14 @@ export function ContactForm({ className }: ContactFormProps) {
             name="message"
             rows={6}
             placeholder="Üzenet"
-            className={cn(field, "block rounded-[3px] px-[14px] py-[5px]")}
+            className={cn(field, "block px-5 py-4")}
           />
         </FieldGroup>
-        <FieldGroup>
-          <span className="block font-raleway text-[14px] leading-[21px] font-normal text-white">
-            File feltöltése (nem kötelező)
-          </span>
+        <FieldGroup full>
+          <FileDropzone name="upload" />
         </FieldGroup>
-        <FieldGroup half>
-          <label htmlFor="form-field-upload" className="sr-only">
-            upload
-          </label>
-          <input
-            id="form-field-upload"
-            name="upload"
-            type="file"
-            multiple
-            className="block font-raleway text-[14px] text-white/45"
-          />
-        </FieldGroup>
-        <FieldGroup>
-          {/* Subgroup inherits the theme body line box (17px / 1.5) */}
-          <div className="text-[17px] leading-[25.5px]">
+        <FieldGroup full>
+          <div className="flex flex-col items-center gap-2 text-center text-[17px] leading-[25.5px]">
             <span className="font-raleway text-[14px] leading-[21px] font-medium text-pk-muted">
               <input id="form-field-acceptance" name="acceptance" type="checkbox" required className="align-baseline" />{" "}
               <label htmlFor="form-field-acceptance">
@@ -125,17 +173,35 @@ export function ContactForm({ className }: ContactFormProps) {
                 leírtakat
               </label>
             </span>
+            <span className="font-raleway text-[14px] leading-[21px] font-medium text-pk-muted">
+              <input id="form-field-cookies" name="cookies" type="checkbox" required className="align-baseline" />{" "}
+              <label htmlFor="form-field-cookies">
+                Elfogadom a{" "}
+                <a href="https://www.plasztikkartya.hu/sutik-tajekoztato" className="text-pk-gold">
+                  Sütik (cookie-k) használatát
+                </a>
+              </label>
+            </span>
           </div>
         </FieldGroup>
-        <FieldGroup>
-          <button
-            type="submit"
-            className="rounded-[10px] bg-pk-gold px-[30px] pt-[17px] pb-[15px] font-helvetica text-[16px] leading-none font-bold text-white tab:text-[18px]"
-          >
-            {contact.submit}
-          </button>
-        </FieldGroup>
+        {status === "error" ? (
+          <FieldGroup full>
+            <p className="text-center font-raleway text-[14px] leading-[1.4] font-medium text-red-400">
+              Hiba történt a küldés során. Kérjük próbáld újra, vagy hívj minket:{" "}
+              <a href={footer.phoneHref} className="text-pk-gold underline">
+                {footer.phone}
+              </a>
+            </p>
+          </FieldGroup>
+        ) : null}
       </div>
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className="mt-8 rounded-[14px] bg-pk-gold px-[40px] pt-[18px] pb-[16px] font-raleway text-[16px] leading-none font-bold text-white tab:text-[18px] disabled:opacity-60"
+      >
+        {status === "submitting" ? "Küldés…" : contact.submit}
+      </button>
     </form>
   );
 }

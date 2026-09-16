@@ -8,8 +8,8 @@ export const boxedInner = "mx-auto w-full max-w-[1600px]";
 
 /** Section H2 (65/75 desktop, 35 tablet, 25/40 mobile). */
 export const sectionHeading =
-  "w-fit max-w-full font-helvetica text-[25px] leading-[40px] font-medium text-white tab:text-[35px] tab:leading-[75px] desk:text-[65px]";
+  "w-fit max-w-full font-raleway text-[40px] leading-[48px] font-bold text-white tab:text-[46px] tab:leading-[80px] desk:text-[72px]";
 
 /** Muted body copy (#FFFFFF66, 18/35 desktop, 16/35 tablet, 16/30 mobile). */
 export const mutedText =
-  "font-helvetica text-[16px] leading-[30px] font-normal text-white/40 tab:leading-[35px] desk:text-[18px]";
+  "font-raleway text-[16px] leading-[30px] font-normal text-white/40 tab:leading-[35px] desk:text-[18px]";
