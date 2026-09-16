@@ -9,15 +9,18 @@ interface Partner {
   file: string;
   width: number;
   height: number;
+  sizeClass: string;
 }
 
+const DEFAULT_SIZE = "h-[26px] tab:h-[30px]";
+
 const PARTNERS: Partner[] = [
-  { name: "Antéus", file: "anteus.webp", width: 913, height: 240 },
-  { name: "NISZ", file: "nisz.webp", width: 178, height: 240 },
-  { name: "Jegymester", file: "jegymester.webp", width: 842, height: 240 },
-  { name: "ASSA ABLOY", file: "assaabloy.webp", width: 1746, height: 240 },
-  { name: "SWARCO", file: "swarco.webp", width: 1020, height: 240 },
-  { name: "BudapestInfo", file: "budapestcard.webp", width: 1265, height: 240 },
+  { name: "Antéus", file: "anteus.webp", width: 913, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "NISZ", file: "nisz.webp", width: 178, height: 240, sizeClass: "h-[46px] tab:h-[52px]" },
+  { name: "Jegymester", file: "jegymester.webp", width: 842, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "ASSA ABLOY", file: "assaabloy.webp", width: 1746, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "SWARCO", file: "swarco.webp", width: 1020, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "BudapestInfo", file: "budapestcard.webp", width: 1265, height: 240, sizeClass: DEFAULT_SIZE },
 ];
 
 export function TrustedPartners() {
@@ -38,7 +41,7 @@ export function TrustedPartners() {
                 alt={partner.name}
                 width={partner.width}
                 height={partner.height}
-                className="h-[26px] w-auto object-contain tab:h-[30px]"
+                className={`w-auto object-contain ${partner.sizeClass}`}
               />
             </div>
           ))}
