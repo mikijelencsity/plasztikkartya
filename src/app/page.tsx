@@ -15,11 +15,11 @@ export default function Home() {
         <SiteHeader />
         <main className="flex w-full flex-col gap-5 desk:mt-[75px]">
           <HeroSection />
-          <TrustedPartners />
           <IntroSection />
           <CardTypesSection />
           <WhyUsReveal />
           <TestimonialsSection />
+          <TrustedPartners />
           <ContactSection />
         </main>
       </div>
