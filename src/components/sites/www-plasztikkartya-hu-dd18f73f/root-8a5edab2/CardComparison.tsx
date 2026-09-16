@@ -8,13 +8,13 @@ export function CardComparison() {
   return (
     <div className="grid w-full grid-cols-2 gap-3 tab:gap-6">
       <div className="flex flex-col">
-        <div className="aspect-[1.586/1] w-full overflow-hidden rounded-[10px]">
+        <div className="aspect-square w-full overflow-hidden rounded-[10px]">
           <Image
-            src={`${IMAGES}/paper-card.png`}
+            src={`${IMAGES}/paper-card-hand.webp`}
             alt="Sima papírkártya"
-            width={700}
-            height={441}
-            sizes="(min-width: 1051px) 45vw, 50vw"
+            width={1254}
+            height={1254}
+            sizes="(min-width: 1051px) 30vw, 50vw"
             className="h-full w-full object-cover"
           />
         </div>
@@ -27,14 +27,14 @@ export function CardComparison() {
       </div>
 
       <div className="flex flex-col">
-        <div className="aspect-[1.586/1] w-full overflow-hidden rounded-[10px] bg-pk-navy">
+        <div className="aspect-square w-full overflow-hidden rounded-[10px]">
           <Image
-            src={`${IMAGES}/hero-card.webp`}
+            src={`${IMAGES}/plastic-card-hand.webp`}
             alt="Plasztikkártya"
-            width={1536}
-            height={1284}
+            width={1254}
+            height={1254}
             sizes="(min-width: 1051px) 30vw, 50vw"
-            className="h-full w-full object-contain"
+            className="h-full w-full object-cover"
           />
         </div>
         <p className={label}>
