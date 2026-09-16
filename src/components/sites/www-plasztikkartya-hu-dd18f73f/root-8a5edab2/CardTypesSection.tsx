@@ -25,7 +25,9 @@ export function CardTypesSection() {
           {cardTypesSection.title}
         </h2>
         <p className={cn(mutedText, "mt-5 mb-[50px] w-[800px] max-w-full text-center")}>{cardTypesSection.text}</p>
-        <CardTypesCarousel />
+        <div className="-mx-[25px] w-[calc(100%+50px)] tab:mx-0 tab:w-full wide:-mx-[50px] wide:w-[calc(100%+100px)]">
+          <CardTypesCarousel />
+        </div>
       </div>
     </section>
   );

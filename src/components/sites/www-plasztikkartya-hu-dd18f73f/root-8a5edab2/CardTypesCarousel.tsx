@@ -35,7 +35,7 @@ export function CardTypesCarousel() {
       renderSlide={(card) => {
         const { width, height } = IMAGE_DIMENSIONS[card.image];
         return (
-          <article className="flex h-full w-full flex-col items-center gap-5 rounded-[20px] p-[10px] tab:p-10">
+          <article className="flex h-full w-full flex-col items-center gap-5 rounded-[20px] px-0 py-[10px] tab:rounded-[20px] tab:p-10">
             <div className="relative aspect-[3/2] w-full">
               <Image
                 src={`${IMAGES}/${card.image}`}
@@ -46,7 +46,7 @@ export function CardTypesCarousel() {
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
-            <h3 className="font-raleway text-[30px] leading-[38px] font-bold text-white tab:text-[32px]">
+            <h3 className="px-[25px] text-center font-raleway text-[30px] leading-[38px] font-bold text-white tab:px-0 tab:text-[32px]">
               {card.title}
             </h3>
           </article>
