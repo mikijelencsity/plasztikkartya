@@ -20,11 +20,6 @@ export interface Testimonial {
   date: string;
 }
 
-export interface GalleryImage {
-  src: string;
-  alt: string;
-}
-
 export const hero = {
   titleLines: ["Plasztikkártya", "a jövő a jelenben"],
   text: "Tartós. Praktikus. Feltűnő. Ma már nem luxus — alapkövetelmény.",
@@ -161,11 +156,6 @@ export const steps: Step[] = [
       "Amint elkészülnek a megrendelt kártyák, értesítést küldünk az átvétel vagy a szállítás részleteiről. Önnek már csak a kész termék átvétele marad.",
   },
 ];
-
-export const galleryImages: GalleryImage[] = ["09", "08", "07", "06", "05", "04", "03", "02", "01"].map((n) => ({
-  src: `${IMAGES}/card-${n}.webp`,
-  alt: `card-${n}`,
-}));
 
 export const testimonialsSection = {
   title: "Vevői visszajelzések",
