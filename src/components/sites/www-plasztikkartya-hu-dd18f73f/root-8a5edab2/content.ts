@@ -31,18 +31,6 @@ export const intro = {
   cta: "Megrendelem",
 };
 
-export const whyUsSection = {
-  eyebrow: "Miért mi?",
-};
-
-export const whyUsItems: string[] = [
-  "Egy életre veszed",
-  "Ügyfeleid felfigyelnek rá",
-  "Grafikával nincs feladatod",
-  "Célodra szabjuk",
-  "Gyorsan a tiéd",
-];
-
 export const cardTypesSection = {
   title: "Plasztikkártya típusok",
   text: "Lapozd végig és találd meg célodra legalkalmasabb plasztikkártyát.",
