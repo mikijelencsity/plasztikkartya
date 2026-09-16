@@ -6,18 +6,16 @@ const label =
 
 export function CardComparison() {
   return (
-    <div className="grid w-full grid-cols-2 gap-3 tab:gap-6">
+    <div className="flex w-full max-w-[380px] flex-col gap-8">
       <div className="flex flex-col">
-        <div className="aspect-square w-full overflow-hidden rounded-[10px]">
-          <Image
-            src={`${IMAGES}/paper-card-hand.webp`}
-            alt="Sima papírkártya"
-            width={1254}
-            height={1254}
-            sizes="(min-width: 1051px) 30vw, 50vw"
-            className="h-full w-full object-cover"
-          />
-        </div>
+        <Image
+          src={`${IMAGES}/paper-card-hand.webp`}
+          alt="Sima papírkártya"
+          width={1254}
+          height={1254}
+          sizes="380px"
+          className="h-auto w-full"
+        />
         <p className={label}>
           <span aria-hidden="true" className="text-white/30">
             ✕
@@ -27,16 +25,14 @@ export function CardComparison() {
       </div>
 
       <div className="flex flex-col">
-        <div className="aspect-square w-full overflow-hidden rounded-[10px]">
-          <Image
-            src={`${IMAGES}/plastic-card-hand.webp`}
-            alt="Plasztikkártya"
-            width={1254}
-            height={1254}
-            sizes="(min-width: 1051px) 30vw, 50vw"
-            className="h-full w-full object-cover"
-          />
-        </div>
+        <Image
+          src={`${IMAGES}/plastic-card-hand.webp`}
+          alt="Plasztikkártya"
+          width={1254}
+          height={1254}
+          sizes="380px"
+          className="h-auto w-full"
+        />
         <p className={label}>
           <span aria-hidden="true" className="text-pk-gold">
             ✓
