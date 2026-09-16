@@ -52,7 +52,7 @@
   --font-heading: var(--font-sans);
   --font-helvetica: var(--font-helvetica-neue), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-roboto: var(--font-roboto-google), Roboto, sans-serif;
-  --font-raleway: var(--font-raleway-google), Raleway, sans-serif;
+  --font-raleway: var(--font-raleway-google), "Instrument Sans", sans-serif;
   --font-nunito: var(--font-nunito-google), Nunito, sans-serif;
   --color-pk-navy: #131b2a;
   --color-pk-gold: #aba37d;
