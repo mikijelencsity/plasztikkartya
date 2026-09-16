@@ -1,4 +1,5 @@
 import { BackToTop } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BackToTop";
+import { BodyFontPreview } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/BodyFontPreview";
 import { CardTypesSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/CardTypesSection";
 import { ContactSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/ContactSection";
 import { HeroSection } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/root-8a5edab2/HeroSection";
@@ -17,6 +18,7 @@ export default function Home() {
           <IntroSection />
           <CardTypesSection />
           <WhyUsReveal />
+          <BodyFontPreview />
           <TestimonialsSection />
           <ContactSection />
         </main>
