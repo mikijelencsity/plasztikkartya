@@ -10,7 +10,7 @@ import { WhyUsReveal } from "@/components/sites/www-plasztikkartya-hu-dd18f73f/r
 export default function Home() {
   return (
     <>
-      <div className="isolate mx-auto flex w-full max-w-[2000px] animate-pk-fade-in flex-col items-center overflow-hidden bg-pk-navy font-helvetica">
+      <div className="isolate mx-auto flex w-full max-w-[2000px] animate-pk-fade-in flex-col items-center overflow-hidden bg-pk-navy font-raleway">
         <SiteHeader />
         <main className="flex w-full flex-col gap-5 desk:mt-[75px]">
           <HeroSection />

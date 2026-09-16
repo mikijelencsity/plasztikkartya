@@ -13,7 +13,7 @@ export function HeroSection() {
     <section className={cn("w-full pt-[60px] tab:pt-0", responsivePadding)}>
       <div className={cn(boxedInner, "flex justify-center")}>
         <div className="flex w-full flex-col items-center gap-5 tab:mt-[75px] desk:mt-0">
-          <h1 className="-mb-[5px] text-center font-helvetica leading-none font-normal text-white tab:mb-0">
+          <h1 className="-mb-[5px] text-center font-raleway leading-none font-normal text-white tab:mb-0">
             <span className="block text-[56px] font-bold underline decoration-pk-gold underline-offset-[10px] tab:text-[65px] desk:text-[105px]">
               {hero.titleLines[0]}
             </span>
@@ -42,7 +42,7 @@ export function HeroSection() {
             </MouseTilt>
           </div>
 
-          <p className="w-full text-center font-helvetica text-[16px] leading-[30px] font-normal text-white tab:w-3/4 tab:text-[18px] tab:leading-[35px] desk:mb-[27px] desk:w-[800px] desk:max-w-full">
+          <p className="w-full text-center font-raleway text-[16px] leading-[30px] font-normal text-white tab:w-3/4 tab:text-[18px] tab:leading-[35px] desk:mb-[27px] desk:w-[800px] desk:max-w-full">
             {hero.text}
           </p>
 

@@ -14,7 +14,7 @@ export function IntroSection() {
         )}
       >
         <div className="flex w-full shrink-0 grow-0 flex-col items-start gap-5 tab:mt-[75px] desk:mt-0 desk:w-[26%]">
-          <h2 className="text-start font-helvetica text-[34px] leading-[42px] font-medium text-white tab:text-[48px] tab:leading-[58px] desk:text-[58px] desk:leading-[70px]">
+          <h2 className="text-start font-raleway text-[34px] leading-[42px] font-medium text-white tab:text-[48px] tab:leading-[58px] desk:text-[58px] desk:leading-[70px]">
             {intro.title}
           </h2>
           <ButtonLink href="#contact" className="text-[14px] tab:text-[18px]">

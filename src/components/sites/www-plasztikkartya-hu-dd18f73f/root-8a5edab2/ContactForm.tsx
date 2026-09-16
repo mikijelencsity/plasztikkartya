@@ -59,7 +59,7 @@ export function ContactForm({ className }: ContactFormProps) {
   if (status === "success") {
     return (
       <div className={cn(className, "flex flex-col items-center px-[10px] text-center")}>
-        <p className="font-helvetica text-[25px] font-medium text-white tab:text-[35px]">
+        <p className="font-raleway text-[25px] font-medium text-white tab:text-[35px]">
           Köszönjük az ajánlatkérést!
         </p>
         <p className="mt-[10px] font-raleway text-[16px] leading-[1.4] font-medium text-white/60">
@@ -198,7 +198,7 @@ export function ContactForm({ className }: ContactFormProps) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-8 rounded-[14px] bg-pk-gold px-[40px] pt-[18px] pb-[16px] font-helvetica text-[16px] leading-none font-bold text-white tab:text-[18px] disabled:opacity-60"
+        className="mt-8 rounded-[14px] bg-pk-gold px-[40px] pt-[18px] pb-[16px] font-raleway text-[16px] leading-none font-bold text-white tab:text-[18px] disabled:opacity-60"
       >
         {status === "submitting" ? "Küldés…" : contact.submit}
       </button>
