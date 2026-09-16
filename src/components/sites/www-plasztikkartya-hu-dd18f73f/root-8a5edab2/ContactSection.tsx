@@ -17,10 +17,10 @@ export function ContactSection() {
         <Image
           src={`${IMAGES}/contact-image.webp`}
           alt=""
-          width={1536}
+          width={1036}
           height={1024}
-          sizes="(min-width: 1051px) 1024px, 500px"
-          className="h-auto w-full max-w-[500px] desk:max-w-[1024px]"
+          sizes="(min-width: 1051px) 700px, 500px"
+          className="h-auto w-full max-w-[500px] desk:max-w-[700px]"
         />
         <h2
           id="contact"
