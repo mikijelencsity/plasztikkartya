@@ -7,7 +7,9 @@ export function CardTypesSection() {
   return (
     <section className={cn("w-full tab:mt-[75px] desk:mt-[100px]", responsivePadding)}>
       <div className={cn(boxedInner, "flex flex-col items-center")}>
-        <h2 className={cn(sectionHeading, "text-start")}>{cardTypesSection.title}</h2>
+        <h2 className={cn(sectionHeading, "text-start underline decoration-pk-gold underline-offset-[10px]")}>
+          {cardTypesSection.title}
+        </h2>
         <p className={cn(mutedText, "mt-5 mb-[50px] w-[800px] max-w-full text-center")}>{cardTypesSection.text}</p>
         <CardTypesCarousel />
       </div>

@@ -46,7 +46,7 @@ export function CardTypesCarousel() {
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
-            <h3 className="font-raleway text-[20px] leading-[35px] font-medium text-white tab:text-[25px]">
+            <h3 className="font-raleway text-[30px] leading-[38px] font-bold text-white tab:text-[32px]">
               {card.title}
             </h3>
           </article>

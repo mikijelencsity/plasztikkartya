@@ -13,17 +13,17 @@ export function IntroSection() {
           "flex flex-col items-center desk:flex-row desk:items-center desk:justify-center desk:gap-x-[75px]",
         )}
       >
-        <div className="flex w-full shrink-0 grow-0 flex-col items-start gap-5 tab:mt-[75px] desk:mt-0 desk:w-[26%]">
-          <h2 className="text-start font-raleway text-[34px] leading-[42px] font-medium text-white tab:text-[48px] tab:leading-[58px] desk:text-[58px] desk:leading-[70px]">
+        <div className="flex w-full shrink-0 grow-0 flex-col items-center gap-5 text-center tab:mt-[75px] desk:mt-0 desk:w-[26%]">
+          <h2 className="font-raleway text-[34px] leading-[42px] font-bold text-white tab:text-[48px] tab:leading-[58px] desk:text-[58px] desk:leading-[70px]">
             {intro.title}
           </h2>
+        </div>
+
+        <div className="mt-[40px] mb-[50px] flex w-full flex-col items-center gap-8 tab:mt-[50px] tab:mb-0 desk:mt-0 desk:w-[74%]">
+          <CardComparison />
           <ButtonLink href="#contact" className="text-[14px] tab:text-[18px]">
             {intro.cta}
           </ButtonLink>
-        </div>
-
-        <div className="mt-[40px] mb-[50px] flex w-full flex-col items-center tab:mt-[50px] tab:mb-0 desk:mt-0 desk:w-[74%]">
-          <CardComparison />
         </div>
       </div>
     </section>
