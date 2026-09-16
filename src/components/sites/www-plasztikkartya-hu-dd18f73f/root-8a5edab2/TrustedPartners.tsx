@@ -1,24 +1,48 @@
-import { boxedInner, responsivePadding } from "./styles";
+import Image from "next/image";
+import { IMAGES } from "./content";
+import { boxedInner, responsivePadding, sectionHeading } from "./styles";
 
-const PARTNERS = ["ANTÉUS", "NISZ", "JEGYMESTER", "ASSA ABLOY", "SWARCO", "BUDAPEST CARD"];
+const PARTNERS_DIR = `${IMAGES}/partners`;
+
+interface Partner {
+  name: string;
+  file: string;
+  width: number;
+  height: number;
+  sizeClass: string;
+}
+
+const DEFAULT_SIZE = "h-[26px] tab:h-[30px]";
+
+const PARTNERS: Partner[] = [
+  { name: "Antéus", file: "anteus.webp", width: 913, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "NISZ", file: "nisz.webp", width: 178, height: 240, sizeClass: "h-[46px] tab:h-[52px]" },
+  { name: "Jegymester", file: "jegymester.webp", width: 842, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "ASSA ABLOY", file: "assaabloy.webp", width: 1746, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "SWARCO", file: "swarco.webp", width: 1020, height: 240, sizeClass: DEFAULT_SIZE },
+  { name: "BudapestInfo", file: "budapestcard.webp", width: 1265, height: 240, sizeClass: DEFAULT_SIZE },
+];
 
 export function TrustedPartners() {
   return (
     <section className={`w-full py-[70px] ${responsivePadding}`}>
       <div className={`${boxedInner} flex flex-col items-center gap-10`}>
-        <div className="flex items-center gap-4">
-          <span className="h-px w-10 bg-white/15" />
-          <span className="font-raleway text-[12px] font-medium tracking-[0.3em] text-pk-gold-dark uppercase">
-            Megbízható gyártópartner
-          </span>
-          <span className="h-px w-10 bg-white/15" />
-        </div>
-        <div className="grid w-full max-w-[860px] grid-cols-2 divide-x divide-y divide-white/10 rounded-[16px] border border-white/10 tab:grid-cols-3">
+        <h2 className={`${sectionHeading} text-center text-[32px] tab:text-[45px] desk:text-[64px]`}>
+          Megbízható gyártópartner
+        </h2>
+        <div className="grid w-full max-w-[860px] grid-cols-2 gap-4 tab:grid-cols-3">
           {PARTNERS.map((partner) => (
-            <div key={partner} className="flex items-center justify-center px-4 py-7">
-              <span className="font-raleway text-[15px] font-semibold tracking-[0.04em] text-white/50 uppercase tab:text-[17px]">
-                {partner}
-              </span>
+            <div
+              key={partner.name}
+              className="flex h-[74px] items-center justify-center rounded-[14px] border border-white/10 bg-white px-6"
+            >
+              <Image
+                src={`${PARTNERS_DIR}/${partner.file}`}
+                alt={partner.name}
+                width={partner.width}
+                height={partner.height}
+                className={`w-auto object-contain ${partner.sizeClass}`}
+              />
             </div>
           ))}
         </div>
