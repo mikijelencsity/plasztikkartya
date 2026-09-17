@@ -14,7 +14,7 @@ export function ContactSection() {
       )}
     >
       <div className={cn(boxedInner, "flex flex-col items-center")}>
-        <div className="relative left-[-60px] w-full max-w-[500px] self-start tab:left-[-110px] desk:left-[-150px] desk:max-w-[700px]">
+        <div className="relative left-[-30px] w-full max-w-[500px] self-start tab:left-[-60px] desk:left-[-80px] desk:max-w-[700px]">
           <Image
             src={`${IMAGES}/contact-image.webp`}
             alt=""
