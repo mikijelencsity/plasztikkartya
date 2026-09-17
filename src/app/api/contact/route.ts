@@ -58,7 +58,7 @@ export async function POST(request: Request) {
   const resend = new Resend(apiKey);
 
   try {
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: FROM_ADDRESS,
       to: recipients,
       replyTo: email,
@@ -74,6 +74,13 @@ export async function POST(request: Request) {
         message || "-",
       ].join("\n"),
     });
+
+    // The Resend SDK resolves with { data, error } instead of throwing on API-level
+    // rejections (e.g. an unverified sender domain), so this must be checked explicitly.
+    if (sendError) {
+      console.error("Failed to send contact form email", sendError);
+      return NextResponse.json({ ok: false, error: "email_send_failed" }, { status: 502 });
+    }
   } catch (error) {
     console.error("Failed to send contact form email", error);
     return NextResponse.json({ ok: false, error: "email_send_failed" }, { status: 502 });

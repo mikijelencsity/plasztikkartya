@@ -82,6 +82,15 @@ describe("POST /api/contact", () => {
     expect(json.ok).toBe(false);
   });
 
+  it("returns 502 when Resend resolves with an error instead of throwing", async () => {
+    sendMock.mockResolvedValueOnce({ data: null, error: { name: "validation_error", message: "domain not verified" } });
+    const response = await POST(makeRequest(validPayload));
+    const json = await response.json();
+
+    expect(response.status).toBe(502);
+    expect(json.ok).toBe(false);
+  });
+
   it("returns 502 when RESEND_API_KEY is missing", async () => {
     delete process.env.RESEND_API_KEY;
     const response = await POST(makeRequest(validPayload));
