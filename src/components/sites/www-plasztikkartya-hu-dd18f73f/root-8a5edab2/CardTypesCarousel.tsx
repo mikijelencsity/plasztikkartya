@@ -12,14 +12,14 @@ const arrow =
 // Real pixel dimensions per image, used only to preserve aspect ratio (display size comes from className).
 const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "card-02.webp": { width: 1552, height: 1552 },
-  "vip-card.webp": { width: 1488, height: 1106 },
-  "card-gift-ai.webp": { width: 1371, height: 1147 },
-  "card-vip-ai.webp": { width: 1371, height: 1147 },
-  "card-door-ai.webp": { width: 1371, height: 1147 },
-  "card-customgraphic-ai.webp": { width: 1371, height: 1148 },
-  "card-id-ai.webp": { width: 1371, height: 1148 },
-  "card-discount-ai.webp": { width: 1536, height: 1024 },
-  "card-warranty-ai.webp": { width: 1536, height: 1024 },
+  "card-gift-ai.webp": { width: 1454, height: 1082 },
+  "card-transparent-ai.webp": { width: 1254, height: 1254 },
+  "card-vip-ai.webp": { width: 1254, height: 1254 },
+  "card-door-ai.webp": { width: 1536, height: 1024 },
+  "card-customgraphic-ai.webp": { width: 1536, height: 1024 },
+  "card-id-ai.webp": { width: 1536, height: 1024 },
+  "card-discount-ai.webp": { width: 1254, height: 1254 },
+  "card-warranty-ai.webp": { width: 1254, height: 1254 },
   "card-sportpass-ai.webp": { width: 1371, height: 1147 },
 };
 

@@ -46,14 +46,14 @@ export const cardTypes: CardType[] = [
   },
   {
     icon: "transparent",
-    image: "card-vip-ai.webp",
+    image: "card-transparent-ai.webp",
     title: "Transzparens kártya",
     description:
       "Kínálatunkban víztiszta és különböző füstszínű plasztikkártyák érhetők el matt vagy fényes kivitelben. A klasszikus és különleges árnyalatok között mindenki megtalálhatja az igényeinek megfelelő megjelenést.",
   },
   {
     icon: "vip",
-    image: "vip-card.webp",
+    image: "card-vip-ai.webp",
     title: "VIP kártya",
     description:
       "VIP kártyáink exkluzív megjelenésükkel ideálisak rendezvények, klubok és kiemelt vendégek számára. Arany vagy ezüst felületkezeléssel, dombornyomással és belépő- vagy kulcskártya funkcióval is készülhetnek.",
