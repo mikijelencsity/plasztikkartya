@@ -7,19 +7,14 @@ import { boxedInner, responsivePadding } from "./styles";
 export function IntroSection() {
   return (
     <section className={cn("mt-[50px] w-full tab:mt-0 desk:mt-[100px]", responsivePadding)}>
-      <div
-        className={cn(
-          boxedInner,
-          "flex flex-col items-center desk:flex-row desk:items-center desk:justify-center desk:gap-x-[75px]",
-        )}
-      >
-        <div className="flex w-full shrink-0 grow-0 flex-col items-center gap-5 text-center tab:mt-[75px] desk:mt-0 desk:w-[26%]">
+      <div className={cn(boxedInner, "flex flex-col items-center")}>
+        <div className="flex w-full shrink-0 grow-0 flex-col items-center gap-5 text-center tab:mt-[75px]">
           <h2 className="font-raleway text-[34px] leading-[42px] font-bold text-white tab:text-[48px] tab:leading-[58px] desk:text-[58px] desk:leading-[70px]">
             {intro.title}
           </h2>
         </div>
 
-        <div className="mt-[40px] mb-[50px] flex w-full flex-col items-center gap-8 tab:mt-[50px] tab:mb-0 desk:mt-0 desk:w-[74%]">
+        <div className="mt-[40px] mb-[50px] flex w-full flex-col items-center gap-8 tab:mt-[50px] tab:mb-0 desk:max-w-[900px]">
           <CardComparison />
           <ButtonLink href="#contact" className="text-[14px] tab:text-[18px]">
             {intro.cta}

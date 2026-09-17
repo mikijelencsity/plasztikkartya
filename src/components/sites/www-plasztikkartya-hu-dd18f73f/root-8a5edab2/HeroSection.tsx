@@ -26,10 +26,16 @@ export function HeroSection() {
             <span
               aria-hidden="true"
               // Elementor's `.e-con::before` also sets left: 0, which overrides the custom right: -100%.
-              className={cn(glow, "top-[23%] left-0 -translate-x-3/4 rotate-180 tab:top-[-54%]")}
+              className={cn(
+                glow,
+                "top-[23%] left-0 -translate-x-3/4 rotate-180 tab:top-[-54%] desk:-translate-x-[60%]",
+              )}
             />
-            <span aria-hidden="true" className={cn(glow, "top-[25%] right-0 translate-x-3/4 tab:top-[-50%]")} />
-            <MouseTilt className="relative z-[1]">
+            <span
+              aria-hidden="true"
+              className={cn(glow, "top-[25%] right-0 translate-x-3/4 tab:top-[-50%] desk:translate-x-[60%]")}
+            />
+            <MouseTilt className="relative z-[1] desk:-mt-[130px]">
               <Image
                 src={`${IMAGES}/hero-card.webp`}
                 alt=""

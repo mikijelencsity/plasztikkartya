@@ -6,14 +6,14 @@ const label =
 
 export function CardComparison() {
   return (
-    <div className="flex w-full max-w-[380px] flex-col gap-8">
-      <div className="flex flex-col">
+    <div className="flex w-full max-w-[380px] flex-col gap-8 desk:max-w-none desk:flex-row desk:items-start desk:gap-10">
+      <div className="flex flex-col desk:flex-1">
         <Image
           src={`${IMAGES}/paper-card-hand.webp`}
           alt="Sima papírkártya"
           width={1254}
           height={1254}
-          sizes="380px"
+          sizes="(min-width: 65.6875rem) 50vw, 380px"
           className="h-auto w-full"
         />
         <p className={label}>
@@ -24,13 +24,13 @@ export function CardComparison() {
         </p>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col desk:flex-1">
         <Image
           src={`${IMAGES}/plastic-card-hand.webp`}
           alt="Plasztikkártya"
           width={1254}
           height={1254}
-          sizes="380px"
+          sizes="(min-width: 65.6875rem) 50vw, 380px"
           className="h-auto w-full"
         />
         <p className={label}>
