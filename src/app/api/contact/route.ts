@@ -15,7 +15,7 @@ interface ContactPayload {
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Must be a sender address/domain verified in the Resend dashboard before going live.
-const FROM_ADDRESS = "Plasztikkártya.hu <ajanlatkeres@plasztikkartya.hu>";
+const FROM_ADDRESS = "Plasztikkártya.hu <ajanlatkeres@plasztikkartya-landing.hu>";
 
 function getRecipients(): string[] {
   const raw = process.env.CONTACT_TO_EMAILS ?? "";
