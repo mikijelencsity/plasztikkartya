@@ -35,9 +35,6 @@ export function CardTypesCarousel() {
       slideClassName="flex"
       renderSlide={(card) => {
         const { width, height } = IMAGE_DIMENSIONS[card.image];
-        // Square-ish sources render noticeably smaller than the box's 3:2 ratio under object-contain;
-        // scale those up so they read at a comparable size to the images that already fill the box.
-        const isSmaller = width / height < 1.1;
         return (
           <article className="flex h-full w-full flex-col items-center gap-5 rounded-[20px] px-0 py-[10px] tab:rounded-[20px] tab:p-10">
             <div className="relative aspect-[3/2] w-full">
@@ -47,10 +44,7 @@ export function CardTypesCarousel() {
                 width={width}
                 height={height}
                 sizes="(min-width: 1051px) 30vw, 90vw"
-                className={cn(
-                  "absolute inset-0 h-full w-full object-contain object-center",
-                  isSmaller && "scale-[1.4]",
-                )}
+                className="absolute inset-0 h-full w-full object-contain object-center"
               />
             </div>
             <h3 className="px-[25px] text-center font-raleway text-[30px] leading-[38px] font-bold text-white tab:px-0 tab:text-[32px]">
