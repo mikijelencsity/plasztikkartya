@@ -19,7 +19,7 @@ export function SiteHeader() {
           className="h-auto w-[193px] max-w-full"
         />
       </Link>
-      <ButtonLink href="#contact" className="shrink-0 px-[20px] text-[14px] tab:px-[35px] tab:text-[18px]">
+      <ButtonLink href="/#contact" className="shrink-0 px-[20px] text-[14px] tab:px-[35px] tab:text-[18px]">
         Megrendelés
       </ButtonLink>
     </header>

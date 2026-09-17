@@ -11,8 +11,8 @@ export function CardComparison() {
         <Image
           src={`${IMAGES}/paper-card-hand.webp`}
           alt="Sima papírkártya"
-          width={1254}
-          height={1254}
+          width={1233}
+          height={1138}
           sizes="380px"
           className="h-auto w-full"
         />
@@ -25,14 +25,16 @@ export function CardComparison() {
       </div>
 
       <div className="flex flex-col">
-        <Image
-          src={`${IMAGES}/plastic-card-hand.webp`}
-          alt="Plasztikkártya"
-          width={1254}
-          height={1254}
-          sizes="380px"
-          className="h-auto w-full"
-        />
+        <div className="-ml-[25px] w-[calc(100%+25px)] tab:ml-0 tab:w-full">
+          <Image
+            src={`${IMAGES}/plastic-card-hand.webp`}
+            alt="Plasztikkártya"
+            width={1175}
+            height={797}
+            sizes="380px"
+            className="h-auto w-full"
+          />
+        </div>
         <p className={label}>
           <span aria-hidden="true" className="text-pk-gold">
             ✓
