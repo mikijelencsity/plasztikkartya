@@ -17,14 +17,19 @@ export function CookieConsent() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    let stored: Consent = null;
     try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (stored === "accepted" || stored === "rejected") {
-        setConsent(stored);
+      const value = window.localStorage.getItem(STORAGE_KEY);
+      if (value === "accepted" || value === "rejected") {
+        stored = value;
       }
     } catch {
       // localStorage unavailable — treat as undecided, banner will show.
     }
+    // Reading localStorage requires an effect (unavailable during SSR); the `ready`
+    // flag keeps the server/client render in sync until this runs.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setConsent(stored);
     setReady(true);
 
     function handleOpen() {
