@@ -154,7 +154,7 @@ export function ContactForm({ className }: ContactFormProps) {
               <input id="form-field-acceptance" name="acceptance" type="checkbox" required className="align-baseline" />{" "}
               <label htmlFor="form-field-acceptance">
                 Elfogadom az{" "}
-                <a href="https://www.plasztikkartya.hu/adatvedelem" className="text-pk-gold">
+                <a href="/adatvedelem" className="text-pk-gold">
                   Adatvédelmi Tájékoztatóban
                 </a>{" "}
                 leírtakat
@@ -164,7 +164,7 @@ export function ContactForm({ className }: ContactFormProps) {
               <input id="form-field-cookies" name="cookies" type="checkbox" required className="align-baseline" />{" "}
               <label htmlFor="form-field-cookies">
                 Elfogadom a{" "}
-                <a href="https://www.plasztikkartya.hu/sutik-tajekoztato" className="text-pk-gold">
+                <a href="/sutik-tajekoztato" className="text-pk-gold">
                   Sütik (cookie-k) használatát
                 </a>
               </label>

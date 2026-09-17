@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { openCookieSettings } from "@/components/analytics/CookieConsent";
 import { cn } from "@/lib/utils";
 import { footer, IMAGES } from "./content";
 
@@ -31,6 +34,11 @@ export function SiteFooter({ className }: SiteFooterProps) {
           <li>{footer.copyright}</li>
           <li>
             <a href={footer.privacyHref}>{footer.privacyLabel}</a>
+          </li>
+          <li>
+            <button type="button" onClick={openCookieSettings} className="text-left underline-offset-2 hover:underline">
+              Sütibeállítások
+            </button>
           </li>
         </ul>
       </div>

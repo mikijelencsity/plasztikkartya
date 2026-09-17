@@ -190,7 +190,7 @@ export const footer = {
   text: "A plasztikkártya tartós, elegáns és professzionális megjelenést biztosít, legyen szó hűségkártyáról, belépőkártyáról, névjegykártyáról vagy azonosító kártyáról.",
   copyright: "2026 @ Plasztikkartya.hu | Minden jog fenntartva.",
   privacyLabel: "Adatvédelem",
-  privacyHref: "/adatvedelem/",
+  privacyHref: "/adatvedelem",
   phoneLabel: "Telefon:",
   phone: "+36 (70) 885 8046",
   phoneHref: "tel:+36708858046",

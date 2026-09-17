@@ -14,14 +14,16 @@ export function ContactSection() {
       )}
     >
       <div className={cn(boxedInner, "flex flex-col items-center")}>
-        <Image
-          src={`${IMAGES}/contact-image.webp`}
-          alt=""
-          width={1036}
-          height={1024}
-          sizes="(min-width: 1051px) 700px, 500px"
-          className="h-auto w-full max-w-[500px] desk:max-w-[700px]"
-        />
+        <div className="relative left-[-27px] w-full max-w-[500px] self-start tab:left-[-42px] desk:left-[-52px] desk:max-w-[700px]">
+          <Image
+            src={`${IMAGES}/contact-image.webp`}
+            alt=""
+            width={1036}
+            height={1024}
+            sizes="(min-width: 1051px) 700px, 500px"
+            className="h-auto w-full"
+          />
+        </div>
         <h2
           id="contact"
           className={cn(sectionHeading, "scroll-mt-0 text-center text-[32px] desk:text-start desk:text-[80px] tab:text-[45px]")}

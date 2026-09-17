@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, Nunito, Roboto } from "next/font/google";
 import localFont from "next/font/local";
-import { ConversionScripts } from "@/components/analytics/ConversionScripts";
+import { CookieConsent } from "@/components/analytics/CookieConsent";
 import "./globals.css";
 
 const SEO = "/sites/www-plasztikkartya-hu-dd18f73f/shared/seo";
@@ -102,7 +102,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-        <ConversionScripts />
+        <CookieConsent />
       </body>
     </html>
   );
