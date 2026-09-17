@@ -36,4 +36,18 @@ describe("trackLeadConversion", () => {
 
     expect(fbq).toHaveBeenCalledWith("track", "Lead");
   });
+
+  it("retries until fbq becomes available, since the pixel init script can still be loading", async () => {
+    vi.useFakeTimers();
+    vi.stubEnv("NEXT_PUBLIC_META_PIXEL_ID", "1234567890");
+
+    trackLeadConversion();
+
+    const fbq = vi.fn();
+    vi.stubGlobal("fbq", fbq);
+    await vi.advanceTimersByTimeAsync(300);
+
+    expect(fbq).toHaveBeenCalledWith("track", "Lead");
+    vi.useRealTimers();
+  });
 });
