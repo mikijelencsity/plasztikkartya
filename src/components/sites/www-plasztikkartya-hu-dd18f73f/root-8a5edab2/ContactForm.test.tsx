@@ -2,10 +2,11 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ContactForm } from "./ContactForm";
-import { trackLeadConversion } from "@/lib/tracking";
 
-vi.mock("@/lib/tracking", () => ({
-  trackLeadConversion: vi.fn(),
+const pushMock = vi.fn();
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: pushMock }),
 }));
 
 async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
@@ -19,10 +20,10 @@ async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
 describe("ContactForm", () => {
   beforeEach(() => {
     vi.stubGlobal("fetch", vi.fn());
-    vi.mocked(trackLeadConversion).mockClear();
+    pushMock.mockClear();
   });
 
-  it("shows a success message and tracks the conversion after a successful submit", async () => {
+  it("navigates to the thank-you page after a successful submit", async () => {
     vi.mocked(fetch).mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
     const user = userEvent.setup();
     render(<ContactForm />);
@@ -30,8 +31,7 @@ describe("ContactForm", () => {
     await fillRequiredFields(user);
     await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
 
-    expect(await screen.findByText("Köszönjük az ajánlatkérést!")).toBeInTheDocument();
-    expect(trackLeadConversion).toHaveBeenCalledTimes(1);
+    expect(pushMock).toHaveBeenCalledWith("/koszonjuk");
   });
 
   it("shows an error message and keeps the field values when the request fails", async () => {
@@ -44,7 +44,7 @@ describe("ContactForm", () => {
 
     expect(await screen.findByText(/Hiba történt/)).toBeInTheDocument();
     expect(screen.getByLabelText("Név")).toHaveValue("Teszt Elek");
-    expect(trackLeadConversion).not.toHaveBeenCalled();
+    expect(pushMock).not.toHaveBeenCalled();
   });
 
   it("submits successfully without a company name, since it is optional", async () => {
@@ -55,6 +55,6 @@ describe("ContactForm", () => {
     await fillRequiredFields(user);
     await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
 
-    expect(await screen.findByText("Köszönjük az ajánlatkérést!")).toBeInTheDocument();
+    expect(pushMock).toHaveBeenCalledWith("/koszonjuk");
   });
 });

@@ -1,8 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { trackLeadConversion } from "@/lib/tracking";
 import { CaretDownIcon } from "../shared/icons";
 import { contact, footer } from "./content";
 import { FileDropzone } from "./FileDropzone";
@@ -18,9 +18,10 @@ interface ContactFormProps {
   className?: string;
 }
 
-type FormStatus = "idle" | "submitting" | "success" | "error";
+type FormStatus = "idle" | "submitting" | "error";
 
 export function ContactForm({ className }: ContactFormProps) {
+  const router = useRouter();
   const [status, setStatus] = useState<FormStatus>("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -49,24 +50,10 @@ export function ContactForm({ className }: ContactFormProps) {
         return;
       }
 
-      setStatus("success");
-      trackLeadConversion();
+      router.push("/koszonjuk");
     } catch {
       setStatus("error");
     }
-  }
-
-  if (status === "success") {
-    return (
-      <div className={cn(className, "flex flex-col items-center px-[10px] text-center")}>
-        <p className="font-raleway text-[25px] font-medium text-white tab:text-[35px]">
-          Köszönjük az ajánlatkérést!
-        </p>
-        <p className="mt-[10px] font-raleway text-[16px] leading-[1.4] font-medium text-white/60">
-          Hamarosan felvesszük Önnel a kapcsolatot.
-        </p>
-      </div>
-    );
   }
 
   return (
