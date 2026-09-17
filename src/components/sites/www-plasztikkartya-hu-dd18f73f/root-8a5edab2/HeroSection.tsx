@@ -52,7 +52,10 @@ export function HeroSection() {
             {hero.text}
           </p>
 
-          <ButtonLink href="#contact" className="text-[14px] tab:text-[18px]">
+          <ButtonLink
+            href="#contact"
+            className="bg-pk-gold-dark px-[45px] pt-[21px] pb-[19px] text-[18px] tab:px-[55px] tab:text-[22px]"
+          >
             {hero.cta}
           </ButtonLink>
         </div>
