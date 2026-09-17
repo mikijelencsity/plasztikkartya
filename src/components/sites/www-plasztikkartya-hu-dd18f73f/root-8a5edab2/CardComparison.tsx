@@ -8,14 +8,16 @@ export function CardComparison() {
   return (
     <div className="flex w-full max-w-[380px] flex-col gap-8">
       <div className="flex flex-col">
-        <Image
-          src={`${IMAGES}/paper-card-hand.webp`}
-          alt="Sima papírkártya"
-          width={1233}
-          height={1138}
-          sizes="380px"
-          className="h-auto w-full"
-        />
+        <div className="relative left-[40px] w-full tab:left-[60px]">
+          <Image
+            src={`${IMAGES}/paper-card-hand.webp`}
+            alt="Sima papírkártya"
+            width={1233}
+            height={1138}
+            sizes="380px"
+            className="h-auto w-full"
+          />
+        </div>
         <p className={label}>
           <span aria-hidden="true" className="text-white/30">
             ✕

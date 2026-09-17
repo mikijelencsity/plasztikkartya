@@ -6,6 +6,11 @@ import { ConversionScripts } from "./ConversionScripts";
 type Consent = "accepted" | "rejected" | null;
 
 const STORAGE_KEY = "pk-cookie-consent";
+const OPEN_EVENT = "pk-open-cookie-settings";
+
+export function openCookieSettings() {
+  window.dispatchEvent(new Event(OPEN_EVENT));
+}
 
 export function CookieConsent() {
   const [consent, setConsent] = useState<Consent>(null);
@@ -21,6 +26,12 @@ export function CookieConsent() {
       // localStorage unavailable — treat as undecided, banner will show.
     }
     setReady(true);
+
+    function handleOpen() {
+      setConsent(null);
+    }
+    window.addEventListener(OPEN_EVENT, handleOpen);
+    return () => window.removeEventListener(OPEN_EVENT, handleOpen);
   }, []);
 
   function choose(value: "accepted" | "rejected") {
