@@ -35,6 +35,18 @@ export function ConversionScripts() {
           `}
         </Script>
       ) : null}
+      {pixelId ? (
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element -- Meta's required noscript pixel fallback, not an optimizable content image */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
+      ) : null}
     </>
   );
 }
