@@ -84,7 +84,14 @@ export const cardTypes: CardType[] = [
     image: "card-discount-ai.webp",
     title: "Kedvezmény kártya",
     description:
-      "A hűségkártya hatékony eszköz a visszatérő vásárlók jutalmazására és a vevőkapcsolatok erősítésére. Segítségével éreztetheti ügyfeleivel, hogy fontosak Önnek. Egyedi grafikával és teljes körű tervezési segítséggel készítjük el.",
+      "A kedvezménykártya egyszerű és látványos módja annak, hogy vásárlóit azonnali árengedménnyel jutalmazza. Egyedi grafikával és teljes körű tervezési segítséggel készítjük el.",
+  },
+  {
+    icon: "discount",
+    image: "card-loyalty-ai.webp",
+    title: "Hűségkártya",
+    description:
+      "A hűségkártya hatékony eszköz a visszatérő vásárlók jutalmazására és a vevőkapcsolatok erősítésére. Segítségével éreztetheti ügyfeleivel, hogy fontosak Önnek. Tagazonosítóval és vonalkóddal is elkészítjük.",
   },
   {
     icon: "warranty",
@@ -179,6 +186,7 @@ export const contact = {
     "Egyedi grafikájú plasztikkártya",
     "Azonosító kártya",
     "Kedvezmény kártya",
+    "Hűségkártya",
     "Garancia kártya",
     "Sportbérlet kártya",
     "Egyéb",

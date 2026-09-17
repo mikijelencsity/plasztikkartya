@@ -17,8 +17,9 @@ const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "card-vip-ai.webp": { width: 1254, height: 1254 },
   "card-door-ai.webp": { width: 1536, height: 1024 },
   "card-customgraphic-ai.webp": { width: 1536, height: 1024 },
-  "card-id-ai.webp": { width: 1536, height: 1024 },
-  "card-discount-ai.webp": { width: 1254, height: 1254 },
+  "card-id-ai.webp": { width: 1371, height: 1148 },
+  "card-discount-ai.webp": { width: 1536, height: 1024 },
+  "card-loyalty-ai.webp": { width: 1254, height: 1254 },
   "card-warranty-ai.webp": { width: 1254, height: 1254 },
   "card-sportpass-ai.webp": { width: 1371, height: 1147 },
 };
