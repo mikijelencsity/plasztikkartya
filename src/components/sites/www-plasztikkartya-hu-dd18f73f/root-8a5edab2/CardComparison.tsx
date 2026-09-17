@@ -8,7 +8,7 @@ export function CardComparison() {
   return (
     <div className="flex w-full max-w-[380px] flex-col gap-8 desk:max-w-none desk:flex-row desk:items-start desk:gap-10">
       <div className="flex flex-col desk:flex-1">
-        <div className="relative left-[80px] w-full desk:left-0">
+        <div className="relative left-[56px] w-full desk:left-0">
           <Image
             src={`${IMAGES}/paper-card-hand.webp`}
             alt="Sima papírkártya"
@@ -27,7 +27,7 @@ export function CardComparison() {
       </div>
 
       <div className="flex flex-col desk:flex-1">
-        <div className="relative left-[80px] w-full desk:left-0">
+        <div className="relative left-[56px] w-full desk:left-0">
           <Image
             src={`${IMAGES}/plastic-card-hand.webp`}
             alt="Plasztikkártya"
