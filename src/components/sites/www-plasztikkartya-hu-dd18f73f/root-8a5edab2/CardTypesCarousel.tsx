@@ -43,7 +43,7 @@ export function CardTypesCarousel() {
                 width={width}
                 height={height}
                 sizes="(min-width: 1051px) 30vw, 90vw"
-                className="absolute inset-0 h-full w-full object-contain object-left"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </div>
             <h3 className="px-[25px] text-center font-raleway text-[30px] leading-[38px] font-bold text-white tab:px-0 tab:text-[32px]">
