@@ -40,7 +40,7 @@ export function CardTypesCarousel() {
           <button
             type="button"
             onClick={() => selectCardType(card.title)}
-            className="flex h-full w-full cursor-pointer flex-col items-center gap-5 rounded-[20px] px-0 py-[10px] text-left transition-opacity hover:opacity-80 tab:rounded-[20px] tab:p-10"
+            className="group flex h-full w-full cursor-pointer flex-col items-center gap-5 rounded-[20px] px-0 py-[10px] text-left tab:rounded-[20px] tab:p-10"
           >
             <div className="relative aspect-[3/2] w-full">
               <Image
@@ -49,12 +49,15 @@ export function CardTypesCarousel() {
                 width={width}
                 height={height}
                 sizes="(min-width: 1051px) 30vw, 90vw"
-                className="absolute inset-0 h-full w-full object-contain object-center"
+                className="absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-300 group-hover:opacity-80"
               />
             </div>
             <h3 className="px-[25px] text-center font-raleway text-[30px] leading-[38px] font-bold text-white tab:px-0 tab:text-[32px]">
               {card.title}
             </h3>
+            <span className="inline-block rounded-[10px] bg-pk-gold px-[35px] pt-[17px] pb-[15px] font-raleway text-[18px] leading-none font-bold text-white transition-all duration-300 group-hover:bg-white group-hover:text-pk-gold">
+              Ajánlatot kérek
+            </span>
           </button>
         );
       }}
