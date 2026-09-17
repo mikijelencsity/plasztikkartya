@@ -27,7 +27,7 @@ export function CardComparison() {
       </div>
 
       <div className="flex flex-col desk:flex-1">
-        <div className="relative left-[14px] w-full desk:left-0">
+        <div className="relative left-[-120px] w-[130%] max-w-none desk:left-0 desk:w-full">
           <Image
             src={`${IMAGES}/plastic-card-hand.webp`}
             alt="Plasztikkártya"
