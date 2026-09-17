@@ -2,7 +2,7 @@ import Image from "next/image";
 import { IMAGES } from "./content";
 
 const label =
-  "mt-3 flex items-center justify-center gap-2 text-center font-raleway text-[13px] font-medium tab:text-[15px]";
+  "mt-3 flex items-center justify-center gap-2 text-center font-raleway text-[17px] font-medium tab:text-[20px]";
 
 export function CardComparison() {
   return (

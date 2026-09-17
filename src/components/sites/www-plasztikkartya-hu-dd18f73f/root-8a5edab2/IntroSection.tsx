@@ -16,7 +16,10 @@ export function IntroSection() {
 
         <div className="mt-[40px] mb-[50px] flex w-full flex-col items-center gap-8 tab:mt-[50px] tab:mb-0 desk:max-w-[900px]">
           <CardComparison />
-          <ButtonLink href="#contact" className="text-[14px] tab:text-[18px]">
+          <ButtonLink
+            href="#contact"
+            className="bg-pk-gold-dark px-[45px] pt-[21px] pb-[19px] text-[18px] tab:px-[55px] tab:text-[22px]"
+          >
             {intro.cta}
           </ButtonLink>
         </div>
