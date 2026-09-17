@@ -28,7 +28,7 @@ export function TrustedPartners() {
     <section className={`w-full py-[70px] ${responsivePadding}`}>
       <div className={`${boxedInner} flex flex-col items-center gap-10`}>
         <h2 className={`${sectionHeading} text-center text-[32px] tab:text-[45px] desk:text-[64px]`}>
-          Megbízható gyártópartner
+          Gyártópartnerek
         </h2>
         <div className="grid w-full max-w-[860px] grid-cols-2 gap-4 tab:grid-cols-3">
           {PARTNERS.map((partner) => (

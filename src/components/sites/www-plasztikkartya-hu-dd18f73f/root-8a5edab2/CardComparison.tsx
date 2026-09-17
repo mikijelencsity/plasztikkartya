@@ -12,8 +12,8 @@ export function CardComparison() {
           <Image
             src={`${IMAGES}/paper-card-hand.webp`}
             alt="Sima papírkártya"
-            width={1254}
-            height={1254}
+            width={1233}
+            height={1138}
             sizes="(min-width: 65.6875rem) 50vw, 380px"
             className="h-auto w-full"
           />
@@ -31,8 +31,8 @@ export function CardComparison() {
           <Image
             src={`${IMAGES}/plastic-card-hand.webp`}
             alt="Plasztikkártya"
-            width={1254}
-            height={1254}
+            width={1175}
+            height={797}
             sizes="(min-width: 65.6875rem) 50vw, 380px"
             className="h-auto w-full"
           />
