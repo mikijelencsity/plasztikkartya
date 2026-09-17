@@ -4,6 +4,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "../shared/icons";
 import { Carousel } from "./Carousel";
+import { selectCardType } from "./cardTypeSelection";
 import { cardTypes, IMAGES } from "./content";
 
 const arrow =
@@ -36,7 +37,11 @@ export function CardTypesCarousel() {
       renderSlide={(card) => {
         const { width, height } = IMAGE_DIMENSIONS[card.image];
         return (
-          <article className="flex h-full w-full flex-col items-center gap-5 rounded-[20px] px-0 py-[10px] tab:rounded-[20px] tab:p-10">
+          <button
+            type="button"
+            onClick={() => selectCardType(card.title)}
+            className="flex h-full w-full cursor-pointer flex-col items-center gap-5 rounded-[20px] px-0 py-[10px] text-left transition-opacity hover:opacity-80 tab:rounded-[20px] tab:p-10"
+          >
             <div className="relative aspect-[3/2] w-full">
               <Image
                 src={`${IMAGES}/${card.image}`}
@@ -50,7 +55,7 @@ export function CardTypesCarousel() {
             <h3 className="px-[25px] text-center font-raleway text-[30px] leading-[38px] font-bold text-white tab:px-0 tab:text-[32px]">
               {card.title}
             </h3>
-          </article>
+          </button>
         );
       }}
       renderControls={({ prev, next }) => (

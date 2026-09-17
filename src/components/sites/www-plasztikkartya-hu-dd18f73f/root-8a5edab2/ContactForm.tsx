@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { CaretDownIcon } from "../shared/icons";
+import { onCardTypeSelected } from "./cardTypeSelection";
 import { contact, footer } from "./content";
 import { FileDropzone } from "./FileDropzone";
 
@@ -23,6 +24,9 @@ type FormStatus = "idle" | "submitting" | "error";
 export function ContactForm({ className }: ContactFormProps) {
   const router = useRouter();
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [cardType, setCardType] = useState(contact.cardOptions[0]);
+
+  useEffect(() => onCardTypeSelected(setCardType), []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -120,6 +124,8 @@ export function ContactForm({ className }: ContactFormProps) {
             <select
               id="form-field-select"
               name="select"
+              value={cardType}
+              onChange={(event) => setCardType(event.target.value)}
               className={cn(field, "h-[56px] appearance-none py-4 pr-5 pl-5")}
             >
               {contact.cardOptions.map((option) => (
