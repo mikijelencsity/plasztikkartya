@@ -29,9 +29,16 @@ export function trackLeadConversion(): void {
 
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   if (pixelId) {
+    // Meta can't dedupe this browser-side Lead event against any server-side (Conversions API)
+    // Lead event without a shared event_id, so every fire gets one even though we don't control
+    // the server side yet.
+    const eventId =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `lead-${Date.now()}-${Math.random().toString(36).slice(2)}`;
     callWhenReady(
       () => typeof window.fbq === "function",
-      () => window.fbq?.("track", "Lead"),
+      () => window.fbq?.("track", "Lead", {}, { eventID: eventId }),
     );
   }
 }
