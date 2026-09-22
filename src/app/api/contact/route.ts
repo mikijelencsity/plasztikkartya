@@ -9,6 +9,7 @@ interface ContactPayload {
   email?: string;
   phone?: string;
   cardType?: string;
+  quantity?: string;
   message?: string;
 }
 
@@ -38,9 +39,10 @@ export async function POST(request: Request) {
   const email = payload.email?.trim() ?? "";
   const phone = payload.phone?.trim() ?? "";
   const cardType = payload.cardType?.trim() ?? "";
+  const quantity = payload.quantity?.trim() ?? "";
   const message = payload.message?.trim() ?? "";
 
-  if (!name || !email || !phone) {
+  if (!name || !company || !email || !phone || !quantity) {
     return NextResponse.json({ ok: false, error: "missing_required_field" }, { status: 400 });
   }
   if (!EMAIL_PATTERN.test(email)) {
@@ -65,10 +67,11 @@ export async function POST(request: Request) {
       subject: `Új ajánlatkérés – ${name}`,
       text: [
         `Név: ${name}`,
-        `Cégnév: ${company || "-"}`,
+        `Cégnév: ${company}`,
         `Email: ${email}`,
         `Telefon: ${phone}`,
         `Kártyatípus: ${cardType || "-"}`,
+        `Darabszám: ${quantity}`,
         "",
         "Üzenet:",
         message || "-",

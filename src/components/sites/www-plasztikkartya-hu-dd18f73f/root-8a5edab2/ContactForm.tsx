@@ -25,6 +25,8 @@ export function ContactForm({ className }: ContactFormProps) {
   const router = useRouter();
   const [status, setStatus] = useState<FormStatus>("idle");
   const [cardType, setCardType] = useState(contact.cardOptions[0]);
+  const [quantity, setQuantity] = useState(contact.quantityOptions[0]);
+  const isCustomQuantity = quantity === "Egyéni";
 
   useEffect(() => onCardTypeSelected(setCardType), []);
 
@@ -39,6 +41,7 @@ export function ContactForm({ className }: ContactFormProps) {
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
       cardType: String(data.get("select") ?? ""),
+      quantity: isCustomQuantity ? String(data.get("customQuantity") ?? "") : quantity,
       message: String(data.get("message") ?? ""),
     };
 
@@ -84,7 +87,8 @@ export function ContactForm({ className }: ContactFormProps) {
             id="form-field-company"
             name="company"
             type="text"
-            placeholder="Cégnév (nem kötelező).."
+            required
+            placeholder="Cégnév.."
             className={cn(field, "min-h-[56px] px-5 py-4")}
           />
         </FieldGroup>
@@ -139,6 +143,44 @@ export function ContactForm({ className }: ContactFormProps) {
             </span>
           </div>
         </FieldGroup>
+        <FieldGroup full>
+          <label htmlFor="form-field-quantity" className="sr-only">
+            Darabszám
+          </label>
+          <div className="relative w-full">
+            <select
+              id="form-field-quantity"
+              name="quantity"
+              value={quantity}
+              onChange={(event) => setQuantity(event.target.value)}
+              className={cn(field, "h-[56px] appearance-none py-4 pr-5 pl-5")}
+            >
+              {contact.quantityOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <span className="pointer-events-none absolute top-1/2 right-5 -translate-y-1/2 text-white/50">
+              <CaretDownIcon className="block h-[25px] w-[10px] -translate-y-px" />
+            </span>
+          </div>
+        </FieldGroup>
+        {isCustomQuantity ? (
+          <FieldGroup full>
+            <label htmlFor="form-field-custom-quantity" className="sr-only">
+              Darabszám megadása
+            </label>
+            <input
+              id="form-field-custom-quantity"
+              name="customQuantity"
+              type="text"
+              required
+              placeholder="Add meg a darabszámot.."
+              className={cn(field, "min-h-[56px] px-5 py-4")}
+            />
+          </FieldGroup>
+        ) : null}
         <FieldGroup full>
           <label htmlFor="form-field-message" className="sr-only">
             Üzenet

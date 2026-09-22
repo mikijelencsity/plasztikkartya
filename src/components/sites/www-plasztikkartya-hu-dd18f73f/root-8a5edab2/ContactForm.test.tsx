@@ -11,6 +11,7 @@ vi.mock("next/navigation", () => ({
 
 async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText("Név"), "Teszt Elek");
+  await user.type(screen.getByLabelText("Cégnév"), "Teszt Kft.");
   await user.type(screen.getByLabelText("Email"), "teszt@example.com");
   await user.type(screen.getByLabelText("Phone"), "+36301234567");
   await user.click(screen.getByLabelText(/Adatvédelmi Tájékoztatóban/));
@@ -47,14 +48,50 @@ describe("ContactForm", () => {
     expect(pushMock).not.toHaveBeenCalled();
   });
 
-  it("submits successfully without a company name, since it is optional", async () => {
+  it("does not submit without a company name, since it is required", async () => {
+    vi.mocked(fetch).mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+    const user = userEvent.setup();
+    render(<ContactForm />);
+
+    await user.type(screen.getByLabelText("Név"), "Teszt Elek");
+    await user.type(screen.getByLabelText("Email"), "teszt@example.com");
+    await user.type(screen.getByLabelText("Phone"), "+36301234567");
+    await user.click(screen.getByLabelText(/Adatvédelmi Tájékoztatóban/));
+    await user.click(screen.getByLabelText(/Sütik \(cookie-k\) használatát/));
+    await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
+
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("sends the selected quantity range in the request body", async () => {
     vi.mocked(fetch).mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
     const user = userEvent.setup();
     render(<ContactForm />);
 
     await fillRequiredFields(user);
+    await user.selectOptions(screen.getByLabelText("Darabszám"), "50-100 db");
     await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
 
-    expect(pushMock).toHaveBeenCalledWith("/koszonjuk");
+    const [, requestInit] = vi.mocked(fetch).mock.calls[0];
+    const body = JSON.parse(String(requestInit?.body));
+    expect(body.quantity).toBe("50-100 db");
+  });
+
+  it("requires and sends a custom quantity when 'Egyéni' is selected", async () => {
+    vi.mocked(fetch).mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+    const user = userEvent.setup();
+    render(<ContactForm />);
+
+    await fillRequiredFields(user);
+    await user.selectOptions(screen.getByLabelText("Darabszám"), "Egyéni");
+    await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
+    expect(fetch).not.toHaveBeenCalled();
+
+    await user.type(screen.getByLabelText("Darabszám megadása"), "350 db");
+    await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
+
+    const [, requestInit] = vi.mocked(fetch).mock.calls[0];
+    const body = JSON.parse(String(requestInit?.body));
+    expect(body.quantity).toBe("350 db");
   });
 });

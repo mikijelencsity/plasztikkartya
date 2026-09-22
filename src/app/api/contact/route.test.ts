@@ -21,9 +21,11 @@ function makeRequest(body: unknown) {
 
 const validPayload = {
   name: "Teszt Elek",
+  company: "Teszt Kft.",
   email: "teszt@example.com",
   phone: "+36301234567",
   cardType: "VIP kártya",
+  quantity: "50-100 db",
   message: "Kérek egy ajánlatot.",
 };
 
@@ -53,10 +55,11 @@ describe("POST /api/contact", () => {
     });
   });
 
-  it("includes the company name in the email body when provided", async () => {
-    await POST(makeRequest({ ...validPayload, company: "Teszt Kft." }));
+  it("includes the company name and quantity in the email body", async () => {
+    await POST(makeRequest(validPayload));
 
     expect(sendMock.mock.calls[0][0].text).toContain("Cégnév: Teszt Kft.");
+    expect(sendMock.mock.calls[0][0].text).toContain("Darabszám: 50-100 db");
   });
 
   it("returns 400 when a required field is missing", async () => {
@@ -65,6 +68,18 @@ describe("POST /api/contact", () => {
 
     expect(response.status).toBe(400);
     expect(json.ok).toBe(false);
+    expect(sendMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 400 when the company name is missing", async () => {
+    const response = await POST(makeRequest({ ...validPayload, company: "" }));
+    expect(response.status).toBe(400);
+    expect(sendMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 400 when the quantity is missing", async () => {
+    const response = await POST(makeRequest({ ...validPayload, quantity: "" }));
+    expect(response.status).toBe(400);
     expect(sendMock).not.toHaveBeenCalled();
   });
 

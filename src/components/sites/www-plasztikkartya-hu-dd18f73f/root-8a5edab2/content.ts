@@ -181,6 +181,7 @@ export const contact = {
     "Sportbérlet kártya",
     "Egyéb",
   ],
+  quantityOptions: ["10-20 db", "20-50 db", "50-100 db", "100+ db", "Egyéni"],
   submit: "Üzenet küldése",
 };
 

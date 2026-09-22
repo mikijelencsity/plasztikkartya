@@ -10,7 +10,7 @@ const { h2, p, ul } = legalText;
 
 export default function AdatvedelemPage() {
   return (
-    <LegalPage title="Adatvédelmi tájékoztató" updated="2026. szeptember 17.">
+    <LegalPage title="Adatvédelmi tájékoztató" updated="2026. szeptember 22.">
       <section className="flex flex-col gap-3">
         <h2 className={h2}>1. Az adatkezelő</h2>
         <p className={p}>
@@ -44,8 +44,9 @@ export default function AdatvedelemPage() {
           <li>Név</li>
           <li>E-mail cím</li>
           <li>Telefonszám</li>
-          <li>Cégnév (opcionális)</li>
+          <li>Cégnév</li>
           <li>A kiválasztott kártyatípus</li>
+          <li>A kért darabszám</li>
           <li>Az üzenet szövege</li>
           <li>Az űrlaphoz csatolt fájl/grafika (opcionális)</li>
         </ul>
