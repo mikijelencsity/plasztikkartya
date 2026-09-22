@@ -26,11 +26,6 @@ export const hero = {
   cta: "Szerezze meg most",
 };
 
-export const intro = {
-  title: "Melyiket adnád ügyfeled kezébe?",
-  cta: "Megrendelem",
-};
-
 export const cardTypesSection = {
   title: "Plasztikkártya típusok",
   text: "Lapozd végig és találd meg célodra legalkalmasabb plasztikkártyát.",
