@@ -10,7 +10,7 @@ export function TestimonialsSection() {
       <p className={cn(mutedText, "mt-5 mb-[50px] w-[800px] max-w-full text-center")}>{testimonialsSection.text}</p>
 
       <div className="w-full desk:p-[10px]">
-        <div className={cn(boxedInner, "grid grid-cols-1 gap-[30px] desk:grid-cols-3 desk:gap-y-0")}>
+        <div className={cn(boxedInner, "grid grid-cols-1 gap-[30px] desk:grid-cols-2 desk:gap-y-0")}>
           {testimonials.map((testimonial) => (
             <article
               key={testimonial.name}

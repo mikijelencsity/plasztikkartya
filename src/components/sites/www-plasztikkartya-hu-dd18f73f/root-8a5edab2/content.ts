@@ -159,11 +159,6 @@ export const testimonials: Testimonial[] = [
     date: "2026. április 18.",
   },
   {
-    quote: "Igényes kivitelezés, szép színek és tartós anyag. Biztosan innen rendelek legközelebb is.",
-    name: "Dékány Bence",
-    date: "2026. június 3.",
-  },
-  {
     quote: "Kiváló minőségű plasztikkártyák, segítőkész ügyfélszolgálat és gyors szállítás. Csak ajánlani tudom.",
     name: "Pálinkás Réka",
     date: "2026. május 27.",
