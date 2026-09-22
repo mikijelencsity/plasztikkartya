@@ -21,7 +21,7 @@ export interface Testimonial {
 }
 
 export const hero = {
-  titleLines: ["Plasztikkártya", "a jövő a jelenben"],
+  titleLines: ["Plasztikkártya", "gyártva, ahogy elképzelted"],
   text: "Tartós. Praktikus. Feltűnő. Ma már nem luxus — alapkövetelmény.",
   cta: "Szerezze meg most",
 };
