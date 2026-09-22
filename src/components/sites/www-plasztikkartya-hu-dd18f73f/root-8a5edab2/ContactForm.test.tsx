@@ -14,6 +14,7 @@ async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
   await user.type(screen.getByLabelText("Cégnév"), "Teszt Kft.");
   await user.type(screen.getByLabelText("Email"), "teszt@example.com");
   await user.type(screen.getByLabelText("Phone"), "+36301234567");
+  await user.selectOptions(screen.getByLabelText("Darabszám"), "200 - 500 db");
   await user.click(screen.getByLabelText(/Adatvédelmi Tájékoztatóban/));
   await user.click(screen.getByLabelText(/Sütik \(cookie-k\) használatát/));
 }
@@ -69,29 +70,27 @@ describe("ContactForm", () => {
     render(<ContactForm />);
 
     await fillRequiredFields(user);
-    await user.selectOptions(screen.getByLabelText("Darabszám"), "50-100 db");
+    await user.selectOptions(screen.getByLabelText("Darabszám"), "1000 - 2000 db");
     await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
 
     const [, requestInit] = vi.mocked(fetch).mock.calls[0];
     const body = JSON.parse(String(requestInit?.body));
-    expect(body.quantity).toBe("50-100 db");
+    expect(body.quantity).toBe("1000 - 2000 db");
   });
 
-  it("requires and sends a custom quantity when 'Egyéni' is selected", async () => {
+  it("does not submit without a chosen quantity, since it has no default and is required", async () => {
     vi.mocked(fetch).mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
     const user = userEvent.setup();
     render(<ContactForm />);
 
-    await fillRequiredFields(user);
-    await user.selectOptions(screen.getByLabelText("Darabszám"), "Egyéni");
+    await user.type(screen.getByLabelText("Név"), "Teszt Elek");
+    await user.type(screen.getByLabelText("Cégnév"), "Teszt Kft.");
+    await user.type(screen.getByLabelText("Email"), "teszt@example.com");
+    await user.type(screen.getByLabelText("Phone"), "+36301234567");
+    await user.click(screen.getByLabelText(/Adatvédelmi Tájékoztatóban/));
+    await user.click(screen.getByLabelText(/Sütik \(cookie-k\) használatát/));
     await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
+
     expect(fetch).not.toHaveBeenCalled();
-
-    await user.type(screen.getByLabelText("Darabszám megadása"), "350 db");
-    await user.click(screen.getByRole("button", { name: "Üzenet küldése" }));
-
-    const [, requestInit] = vi.mocked(fetch).mock.calls[0];
-    const body = JSON.parse(String(requestInit?.body));
-    expect(body.quantity).toBe("350 db");
   });
 });

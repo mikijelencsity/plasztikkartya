@@ -2,6 +2,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ContactForm } from "./ContactForm";
 import { contact, IMAGES } from "./content";
+import { PricingTable } from "./PricingTable";
 import { SiteFooter } from "./SiteFooter";
 import { boxedInner, mutedText, responsivePadding, sectionHeading } from "./styles";
 
@@ -24,16 +25,15 @@ export function ContactSection() {
             className="h-auto w-full"
           />
         </div>
-        <h2
-          id="contact"
-          className={cn(sectionHeading, "scroll-mt-0 text-center text-[32px] desk:text-start desk:text-[80px] tab:text-[45px]")}
-        >
+        <span id="contact" className="scroll-mt-0" />
+        <PricingTable />
+        <h2 className={cn(sectionHeading, "mt-[50px] text-center text-[32px] tab:text-[45px] desk:mt-[60px]")}>
           {contact.title}
         </h2>
         <p className={cn(mutedText, "mt-5 mb-[50px] w-[950px] max-w-full text-center text-[20px] desk:text-[24px]")}>
           {contact.text}
         </p>
-        <div className="w-full max-w-[1300px] rounded-[40px] bg-gradient-to-br from-[#f3e6bd] via-pk-gold-dark to-pk-gold p-[3px] desk:mt-[10px] tab:rounded-[56px]">
+        <div className="w-full max-w-[1300px] rounded-[40px] bg-gradient-to-br from-[#f3e6bd] via-pk-gold-dark to-pk-gold p-[3px] tab:rounded-[56px]">
           <div className="rounded-[38px] bg-pk-navy px-[25px] py-[40px] tab:rounded-[54px] tab:px-[60px]">
             <ContactForm className="w-full" />
           </div>

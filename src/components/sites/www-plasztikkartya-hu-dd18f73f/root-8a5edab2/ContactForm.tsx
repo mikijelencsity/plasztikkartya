@@ -25,8 +25,7 @@ export function ContactForm({ className }: ContactFormProps) {
   const router = useRouter();
   const [status, setStatus] = useState<FormStatus>("idle");
   const [cardType, setCardType] = useState(contact.cardOptions[0]);
-  const [quantity, setQuantity] = useState(contact.quantityOptions[0]);
-  const isCustomQuantity = quantity === "Egyéni";
+  const [quantity, setQuantity] = useState("");
 
   useEffect(() => onCardTypeSelected(setCardType), []);
 
@@ -41,7 +40,7 @@ export function ContactForm({ className }: ContactFormProps) {
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
       cardType: String(data.get("select") ?? ""),
-      quantity: isCustomQuantity ? String(data.get("customQuantity") ?? "") : quantity,
+      quantity: String(data.get("quantity") ?? ""),
       message: String(data.get("message") ?? ""),
     };
 
@@ -151,10 +150,14 @@ export function ContactForm({ className }: ContactFormProps) {
             <select
               id="form-field-quantity"
               name="quantity"
+              required
               value={quantity}
               onChange={(event) => setQuantity(event.target.value)}
               className={cn(field, "h-[56px] appearance-none py-4 pr-5 pl-5")}
             >
+              <option value="" disabled>
+                Válasszon darabszámot..
+              </option>
               {contact.quantityOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
@@ -166,21 +169,6 @@ export function ContactForm({ className }: ContactFormProps) {
             </span>
           </div>
         </FieldGroup>
-        {isCustomQuantity ? (
-          <FieldGroup full>
-            <label htmlFor="form-field-custom-quantity" className="sr-only">
-              Darabszám megadása
-            </label>
-            <input
-              id="form-field-custom-quantity"
-              name="customQuantity"
-              type="text"
-              required
-              placeholder="Add meg a darabszámot.."
-              className={cn(field, "min-h-[56px] px-5 py-4")}
-            />
-          </FieldGroup>
-        ) : null}
         <FieldGroup full>
           <label htmlFor="form-field-message" className="sr-only">
             Üzenet

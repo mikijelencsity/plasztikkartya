@@ -165,6 +165,30 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
+export interface PriceRow {
+  quantity: string;
+  netUnitPrice: string;
+  netTotal: string;
+  vatRate: string;
+  vatAmount: string;
+  grossTotal: string;
+}
+
+export const pricingSection = {
+  title: "Árlista",
+  text: "Tájékoztató árak plasztikkártya gyártásra, mennyiségtől függően.",
+  columns: ["Mennyiség (db)", "Nettó egységár", "Nettó összesen", "ÁFA", "ÁFA összege", "Bruttó összesen"],
+  rows: [
+    { quantity: "100", netUnitPrice: "250 Ft", netTotal: "25 000 Ft", vatRate: "27%", vatAmount: "6 750 Ft", grossTotal: "31 750 Ft" },
+    { quantity: "250", netUnitPrice: "200 Ft", netTotal: "50 000 Ft", vatRate: "27%", vatAmount: "13 500 Ft", grossTotal: "63 500 Ft" },
+    { quantity: "500", netUnitPrice: "180 Ft", netTotal: "90 000 Ft", vatRate: "27%", vatAmount: "24 300 Ft", grossTotal: "114 300 Ft" },
+    { quantity: "1000", netUnitPrice: "150 Ft", netTotal: "150 000 Ft", vatRate: "27%", vatAmount: "40 500 Ft", grossTotal: "190 500 Ft" },
+    { quantity: "1500", netUnitPrice: "140 Ft", netTotal: "210 000 Ft", vatRate: "27%", vatAmount: "56 700 Ft", grossTotal: "266 700 Ft" },
+    { quantity: "2000", netUnitPrice: "130 Ft", netTotal: "260 000 Ft", vatRate: "27%", vatAmount: "70 200 Ft", grossTotal: "330 200 Ft" },
+  ] satisfies PriceRow[],
+  note: "Gyártási idő: a nyomdakész grafika jóváhagyását és az összeg beérkezését követően 7–10 munkanap.",
+};
+
 export const contact = {
   title: "Kérjen ajánlatot!",
   text: "Töltse ki az űrlapot, és hamarosan jelentkezünk.",
@@ -181,7 +205,7 @@ export const contact = {
     "Sportbérlet kártya",
     "Egyéb",
   ],
-  quantityOptions: ["10-20 db", "20-50 db", "50-100 db", "100+ db", "Egyéni"],
+  quantityOptions: ["100 - 200 db", "200 - 500 db", "500 - 1000 db", "1000 - 2000 db", "2000+ db", "Még nem tudom"],
   submit: "Üzenet küldése",
 };
 
